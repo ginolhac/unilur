@@ -35,7 +35,7 @@ local function scan_blocks(blocks)
   local foundSolution = false
   local newBlocks = pandoc.List()
   for _,block in ipairs(blocks) do
-    if block.attributes ~= nil and block.attributes["solution"] and options_solution then --options_solution ~= nil then
+    if block.attributes ~= nil and block.attributes["solution"] then
       local solution = block.attributes["solution"]
       if block.t == "CodeBlock" then
         foundSolution = true
@@ -45,7 +45,9 @@ local function scan_blocks(blocks)
         foundSolution = true
         block.attributes["solution"] = nil
         block.content[1] = codeBlockWithSolution(block.content[1], solution)
-        newBlocks:insert(block)
+        if options_solution then
+          newBlocks:insert(block)
+        end
       else
         newBlocks:insert(block)
       end
