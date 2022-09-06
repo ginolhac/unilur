@@ -20,7 +20,7 @@ end
 local function codeBlockWithSolution(el)
   local solutionEl = pandoc.Div({pandoc.Plain{
     pandoc.RawInline("html", "<pre>"),
-    pandoc.Strong{pandoc.Strong{"Solution"}},  -- pandoc.Str(xxx) pandoc.Strong{"Solution"}
+    pandoc.Strong{"Solution"},  -- pandoc.utils.stringify(options_solution) pandoc.Strong{"Solution"}
     pandoc.RawInline("html", "</pre>")
   }}, pandoc.Attr("", {"code-with-solution-header"}))
   return pandoc.Div(
@@ -29,13 +29,13 @@ local function codeBlockWithSolution(el)
   )
 end
 
-function Blocks(blocks)
+local function scan_blocks(blocks)
 
   -- transform ast for 'solution'
   local foundSolution = false
   local newBlocks = pandoc.List()
   for _,block in ipairs(blocks) do
-    if block.attributes ~= nil and block.attributes["solution"] then --options_solution ~= nil then
+    if block.attributes ~= nil and block.attributes["solution"] and options_solution then --options_solution ~= nil then
       local solution = block.attributes["solution"]
       if block.t == "CodeBlock" then
         foundSolution = true
@@ -70,3 +70,10 @@ function Blocks(blocks)
   end
 end
 
+
+-- Run in two passes so we process metadata
+-- and then process the divs
+return {
+  {Meta = read_meta},
+  {Blocks = scan_blocks}
+}

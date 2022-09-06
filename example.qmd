@@ -6,8 +6,30 @@ format:
 filters:
   - unilur
 unilur:
-  solution: "true"
+  solution: true
 ---
+
+## Usage
+
+- Activate the extension by adding the following lines to your YAML header:
+
+``` yaml
+filters:
+  - unilur
+```
+
+- Solution code blocks are **highlighted** or ~~discarded~~ according to this Boolean and the YAML header:
+
+``` yaml
+unilur:
+  solution: true # or false
+```
+
+
+### Example with `solution: true`
+
+
+Code chunk with `echo: fenced`
 
 ```{r}
 #| solution: true
