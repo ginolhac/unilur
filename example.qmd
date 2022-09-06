@@ -1,0 +1,34 @@
+---
+title: "Unilur Example"
+format:
+  html:
+    theme: cosmo
+filters:
+  - unilur
+unilur:
+  solution: "true"
+---
+
+```{r}
+#| solution: true
+#| echo: fenced
+
+1 + 1
+```
+
+Classic
+
+```{r}
+#| echo: fenced
+
+1 + 1
+```
+
+Solution
+
+```{r}
+#| solution: true
+
+1 + 2
+```
+

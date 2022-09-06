@@ -1,0 +1,6 @@
+title: Unilur
+author: A. Ginolhac
+version: 0.0.1
+contributes:
+  filters:
+    - code-solution.lua

@@ -1,0 +1,28 @@
+---
+title: unilur
+format: gfm
+---
+
+## Aim
+
+Convert [{unilur}](https://github.com/koncina/unilur) to a [quarto-ext](https://github.com/quarto-ext)
+
+### Current status
+
+![unilur-output](unilur-ext_2022-09-06%2015-52-22.png)
+
+### Debugging
+
+To get the intermediate markdown document:
+
+    quarto render example.qmd -M keep-md:true
+
+    /usr/lib/rstudio/resources/app/bin/quarto/bin/tools/pandoc -f markdown -t json -o ast.json example.md
+
+Then visualize the Abstract Syntax Tree (AST) using [this code](https://bookdown.org/yihui/rmarkdown-cookbook/lua-filters.html)
+
+```{r}
+xfun:::tree(
+  jsonlite::fromJSON('ast.json', simplifyVector = FALSE)
+)
+```
