@@ -7,13 +7,11 @@ local options_solution = nil
 -- permitted options include:
 -- solution: true/false
 local function read_meta(meta)
-  local options = meta["unilur"]
+  local options = meta["solution"]
   -- options_solution = false
   -- if options == nil then return meta end
   if options ~= nil then
-    if options.solution ~= nil then
-      options_solution = options.solution
-    end
+    options_solution = options
   end
 end
 
@@ -45,6 +43,7 @@ local function scan_blocks(blocks)
         foundSolution = true
         block.attributes["solution"] = nil
         block.content[1] = codeBlockWithSolution(block.content[1], solution)
+        -- only add block if solution is activated
         if options_solution then
           newBlocks:insert(block)
         end
