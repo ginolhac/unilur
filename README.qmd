@@ -5,13 +5,43 @@ format: gfm
 
 ## Aim
 
-Convert [{unilur}](https://github.com/koncina/unilur) to a [quarto-ext](https://github.com/quarto-ext)
+Convert [{unilur}](https://github.com/koncina/unilur) developed by \[**Eric Koncina**\](https://github.com/koncina) to a [quarto-ext](https://github.com/quarto-ext). The current package does more than the hiding/highlighting of **solution** code chunks for teaching practicals.
 
-### Current status
+## Current status
+
+```{r}
+#| include: false
+#| label: run examples
+quarto::quarto_render(input = "_extensions/unilur/example.qmd",
+                      output_file = "docs/example_solution.html")
+quarto::quarto_render(input = "_extensions/unilur/example.qmd",
+                      pandoc_args = "-M solution: false",
+                      output_file = "docs/example_nosolution.html")
+```
 
 ![unilur-output](unilur-ext_2022-09-06%2015-52-22.png)
 
+## Acknowledgements
+
+People who developed and released extensions I got inspiration from:
+
+-   [JJ Allaire](https://github.com/jjallaire) for [`filename`](https://github.com/quarto-ext/code-filename) extension
+-   [Andrie de Vries](https://github.com/andrie) for [`reveal-auto-agenda`](https://github.com/andrie/reveal-auto-agenda) extension
+
+Moreover:
+
+-   [Christophe Dervieux]() for precious advises
+-   [Mickaël Canouil](https://github.com/mcanouil/) for maintaining the [awesome Quarto](https://github.com/mcanouil/awesome-quarto)
+
+### TODO
+
+-   Collapse boxes toggle like [original {unilur}](http://koncina.github.io/unilur/articles/custom-boxes.html)
+-   Constant `code-collapse: true` so green frame encompasses code output?
+-   Better CSS rules (`Solution` code header in main font)
+
 ### Debugging
+
+This helped me developing this extension.
 
 To get the intermediate markdown document:
 
@@ -22,6 +52,8 @@ To get the intermediate markdown document:
 Then visualize the Abstract Syntax Tree (AST) using [this code](https://bookdown.org/yihui/rmarkdown-cookbook/lua-filters.html)
 
 ```{r}
+#| code-fold: true
+#| code-summary: "pandoc AST"
 xfun:::tree(
   jsonlite::fromJSON('ast.json', simplifyVector = FALSE)
 )

@@ -5,3 +5,5 @@
 example.html
 *.json
 *_files/
+/renv/
+.Rprofile

@@ -30,6 +30,7 @@
 
 .code-with-solution .code-with-solution-header,
 .code-with-solution .code-with-solution-header .sourceCode pre {
+  /*font-family: var(--bs-font-sans-serif) !important; */
   background-color: rgba(172, 255, 175, 1);
 }
 

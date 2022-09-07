@@ -1,0 +1,57 @@
+---
+title: "Unilur Example"
+format:
+  html:
+    theme: cosmo
+filters:
+  - unilur
+solution: true
+---
+
+## Usage
+
+- **Activate** the extension by adding the following lines to your YAML header:
+
+``` yaml
+filters:
+  - unilur
+```
+
+- **Solution** code blocks are **highlighted** or ~~discarded~~ according to the `solution` Boolean and the YAML header:
+
+``` yaml
+solution: true # or false
+```
+
+Of note, if `solution` is absent, it is considered `false`.
+
+
+### Example with `solution: true`
+
+- Code chunk with `echo: fenced`
+
+```{r}
+#| solution: true
+#| echo: fenced
+
+1 + 1
+```
+
+- Code block _without_ solution, so stays in whatever happens
+
+```{r}
+#| echo: fenced
+
+1 + 1
+```
+
+- Solution with `collapse: true` 
+
+```{r}
+#| solution: true
+#| collapse: true
+
+1 + 2
+```
+
+
