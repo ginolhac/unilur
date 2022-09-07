@@ -20,21 +20,9 @@ extensions](https://quarto.org/docs/extensions/#managing-extensions).
 
 ## Outputs
 
-<div class="columns">
-
-<div class="column">
-
-![unilur-solution](img/unilur_solution.png)
-
-</div>
-
-<div class="column">
-
-![unilur-nosolution](img/unilur_nosolution.png)
-
-</div>
-
-</div>
+| Example `solution: true`                    | Example `solution: false`                       |
+|---------------------------------------------|-------------------------------------------------|
+| ![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png) |
 
 ## Acknowledgements
 
@@ -71,6 +59,11 @@ To get the intermediate markdown document:
 
 Then visualize the Abstract Syntax Tree (AST) using [this
 code](https://bookdown.org/yihui/rmarkdown-cookbook/lua-filters.html)
+
+<details>
+<summary>
+pandoc AST
+</summary>
 
 ``` r
 xfun:::tree(
@@ -261,3 +254,5 @@ List of 3
                             |  |-: list()
                             |-: chr "[1] 3"
 ```
+
+</details>

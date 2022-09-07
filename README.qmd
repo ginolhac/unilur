@@ -18,21 +18,10 @@ More details are available in Quarto docs for [managing extensions](https://quar
 
 ## Outputs
 
-::: {.columns}
 
-::: {.column}
-
-![unilur-solution](img/unilur_solution.png)
-
-:::
-
-::: {.column}
-
-![unilur-nosolution](img/unilur_nosolution.png)
-
-:::
-
-:::
+| Example `solution: true` | Example `solution: false` 
+-------------------------- | -------------------------
+![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png)
 
 ## Acknowledgements
 
@@ -64,6 +53,7 @@ To get the intermediate markdown document:
 
 Then visualize the Abstract Syntax Tree (AST) using [this code](https://bookdown.org/yihui/rmarkdown-cookbook/lua-filters.html)
 
+<details><summary>pandoc AST</summary>
 ```{r}
 #| code-fold: true
 #| code-summary: "pandoc AST"
@@ -71,3 +61,4 @@ xfun:::tree(
   jsonlite::fromJSON('ast.json', simplifyVector = FALSE)
 )
 ```
+</details>
