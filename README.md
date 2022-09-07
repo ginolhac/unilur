@@ -18,6 +18,37 @@ quarto install extension ginolhac/unilur
 More details are available in Quarto docs for [managing
 extensions](https://quarto.org/docs/extensions/#managing-extensions).
 
+## Usage
+
+- **Activate** the extension by adding the following lines to your YAML
+  header:
+
+``` yaml
+filters:
+  - unilur
+```
+
+- **Solution** code blocks are either **highlighted** or ~~discarded~~
+  according to the `solution` Boolean and the YAML header:
+
+``` yaml
+solution: true # or false
+```
+
+Of note, if `solution` is absent, it is considered `false`.
+
+- Add the new variable `solution` as [hashpipe,
+  `#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the
+  code chunks that are part of practical answers. Otherwise, chunks are
+  left untouched.
+
+<!-- -->
+
+    #| solution: true
+
+See the joined
+[`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd).
+
 ## Outputs
 
 | Example `solution: true`                    | Example `solution: false`                       |
