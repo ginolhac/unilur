@@ -76,7 +76,9 @@ Moreover:
 - Collapse boxes toggle like [original
   {unilur}](http://koncina.github.io/unilur/articles/custom-boxes.html)
 - Constant `code-collapse: true` so green frame encompasses code output?
-- Better CSS rules (`Solution` code header in main font)
+- Better CSS rules:
+  - `Solution` code header in main font)
+  - Dark mode not really working
 
 ### Debugging
 

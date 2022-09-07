@@ -7,7 +7,6 @@ format: gfm
 
 Convert [{unilur}](https://github.com/koncina/unilur) developed by [**Eric Koncina**](https://github.com/koncina) to a [quarto-ext](https://github.com/quarto-ext). The current package does more than the hiding/highlighting of **solution** code chunks for teaching practicals.
 
-
 ## Installation
 
 ``` bash
@@ -18,14 +17,14 @@ More details are available in Quarto docs for [managing extensions](https://quar
 
 ## Usage
 
-- **Activate** the extension by adding the following lines to your YAML header:
+-   **Activate** the extension by adding the following lines to your YAML header:
 
 ``` yaml
 filters:
   - unilur
 ```
 
-- **Solution** code blocks are either **highlighted** or ~~discarded~~ according to the `solution` Boolean and the YAML header:
+-   **Solution** code blocks are either **highlighted** or ~~discarded~~ according to the `solution` Boolean and the YAML header:
 
 ``` yaml
 solution: true # or false
@@ -33,20 +32,19 @@ solution: true # or false
 
 Of note, if `solution` is absent, it is considered `false`.
 
-- Add the new variable `solution` as [hashpipe, `#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the code chunks that are part of practical answers. Otherwise, chunks are left untouched.
+-   Add the new variable `solution` as [hashpipe, `#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the code chunks that are part of practical answers. Otherwise, chunks are left untouched.
 
-``` 
-#| solution: true
-```
+<!-- -->
+
+    #| solution: true
 
 See the joined [`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd).
 
 ## Outputs
 
-
-| Example `solution: true` | Example `solution: false` 
--------------------------- | -------------------------
-![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png)
+| Example `solution: true`                    | Example `solution: false`                       |
+|---------------------------------------------|-------------------------------------------------|
+| ![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png) |
 
 ## Acknowledgements
 
@@ -64,7 +62,9 @@ Moreover:
 
 -   Collapse boxes toggle like [original {unilur}](http://koncina.github.io/unilur/articles/custom-boxes.html)
 -   Constant `code-collapse: true` so green frame encompasses code output?
--   Better CSS rules (`Solution` code header in main font)
+-   Better CSS rules:
+    -   `Solution` code header in main font)
+    -   Dark mode not really working
 
 ### Debugging
 
@@ -78,7 +78,10 @@ To get the intermediate markdown document:
 
 Then visualize the Abstract Syntax Tree (AST) using [this code](https://bookdown.org/yihui/rmarkdown-cookbook/lua-filters.html)
 
-<details><summary>pandoc AST</summary>
+<details>
+
+<summary>pandoc AST</summary>
+
 ```{r}
 #| code-fold: true
 #| code-summary: "pandoc AST"
@@ -86,4 +89,5 @@ xfun:::tree(
   jsonlite::fromJSON('ast.json', simplifyVector = FALSE)
 )
 ```
+
 </details>
