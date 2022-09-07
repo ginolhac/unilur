@@ -5,21 +5,34 @@ format: gfm
 
 ## Aim
 
-Convert [{unilur}](https://github.com/koncina/unilur) developed by \[**Eric Koncina**\](https://github.com/koncina) to a [quarto-ext](https://github.com/quarto-ext). The current package does more than the hiding/highlighting of **solution** code chunks for teaching practicals.
+Convert [{unilur}](https://github.com/koncina/unilur) developed by [**Eric Koncina**](https://github.com/koncina) to a [quarto-ext](https://github.com/quarto-ext). The current package does more than the hiding/highlighting of **solution** code chunks for teaching practicals.
 
-## Current status
 
-```{r}
-#| include: false
-#| label: run examples
-quarto::quarto_render(input = "_extensions/unilur/example.qmd",
-                      output_file = "docs/example_solution.html")
-quarto::quarto_render(input = "_extensions/unilur/example.qmd",
-                      pandoc_args = "-M solution: false",
-                      output_file = "docs/example_nosolution.html")
+## Installation
+
+``` bash
+quarto install extension ginolhac/unilur
 ```
 
-![unilur-output](unilur-ext_2022-09-06%2015-52-22.png)
+More details are available in Quarto docs for [managing extensions](https://quarto.org/docs/extensions/#managing-extensions).
+
+## Outputs
+
+::: {.columns}
+
+::: {.column}
+
+![unilur-solution](img/unilur_solution.png)
+
+:::
+
+::: {.column}
+
+![unilur-nosolution](img/unilur_nosolution.png)
+
+:::
+
+:::
 
 ## Acknowledgements
 

@@ -5,7 +5,7 @@ format:
     theme: cosmo
 filters:
   - unilur
-solution: true
+solution: false
 ---
 
 ## Usage
@@ -26,7 +26,7 @@ solution: true # or false
 Of note, if `solution` is absent, it is considered `false`.
 
 
-### Example with `solution: true`
+### Example with `solution: false`
 
 - Code chunk with `echo: fenced`
 

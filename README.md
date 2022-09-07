@@ -3,14 +3,65 @@ unilur
 
 ## Aim
 
-Convert [{unilur}](https://github.com/koncina/unilur) to a
-[quarto-ext](https://github.com/quarto-ext)
+Convert [{unilur}](https://github.com/koncina/unilur) developed by
+[**Eric Koncina**](https://github.com/koncina) to a
+[quarto-ext](https://github.com/quarto-ext). The current package does
+more than the hiding/highlighting of **solution** code chunks for
+teaching practicals.
 
-### Current status
+## Installation
 
-![unilur-output](unilur-ext_2022-09-06%2015-52-22.png)
+``` bash
+quarto install extension ginolhac/unilur
+```
+
+More details are available in Quarto docs for [managing
+extensions](https://quarto.org/docs/extensions/#managing-extensions).
+
+## Outputs
+
+<div class="columns">
+
+<div class="column">
+
+![unilur-solution](img/unilur_solution.png)
+
+</div>
+
+<div class="column">
+
+![unilur-nosolution](img/unilur_nosolution.png)
+
+</div>
+
+</div>
+
+## Acknowledgements
+
+People who developed and released extensions I got inspiration from:
+
+- [JJ Allaire](https://github.com/jjallaire) for
+  [`filename`](https://github.com/quarto-ext/code-filename) extension
+- [Andrie de Vries](https://github.com/andrie) for
+  [`reveal-auto-agenda`](https://github.com/andrie/reveal-auto-agenda)
+  extension
+
+Moreover:
+
+- [Christophe Dervieux]() for precious advises
+- [Mickaël Canouil](https://github.com/mcanouil/) for maintaining the
+  [awesome Quarto](https://github.com/mcanouil/awesome-quarto)
+
+### TODO
+
+- Collapse boxes toggle like [original
+  {unilur}](http://koncina.github.io/unilur/articles/custom-boxes.html)
+- Constant `code-collapse: true` so green frame encompasses code output?
+- Better CSS rules (`Solution` code header in main font)
 
 ### Debugging
+
+This helped me developing this extension.
 
 To get the intermediate markdown document:
 

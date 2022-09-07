@@ -7,3 +7,4 @@ example.html
 *_files/
 /renv/
 .Rprofile
+*.html
