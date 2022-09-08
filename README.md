@@ -67,7 +67,7 @@ People who developed and released extensions I got inspiration from:
 
 Moreover:
 
-- [Christophe Dervieux]() for precious advises
+- [Christophe Dervieux](https://github.com/cderv) for precious advises
 - [Mickaël Canouil](https://github.com/mcanouil/) for maintaining the
   [awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 
@@ -289,3 +289,7 @@ List of 3
 ```
 
 </details>
+
+## License
+
+MIT License

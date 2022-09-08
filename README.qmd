@@ -43,7 +43,7 @@ See the joined [`example.qmd`](https://github.com/ginolhac/unilur/blob/main/exam
 ## Outputs
 
 | Example `solution: true`                    | Example `solution: false`                       |
-|---------------------------------------------|-------------------------------------------------|
+|----------------------------------|-------------------------------------|
 | ![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png) |
 
 ## Acknowledgements
@@ -55,7 +55,7 @@ People who developed and released extensions I got inspiration from:
 
 Moreover:
 
--   [Christophe Dervieux]() for precious advises
+-   [Christophe Dervieux](https://github.com/cderv) for precious advises
 -   [Mickaël Canouil](https://github.com/mcanouil/) for maintaining the [awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 
 ### TODO
@@ -91,3 +91,7 @@ xfun:::tree(
 ```
 
 </details>
+
+## License
+
+MIT License
