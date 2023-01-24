@@ -1,6 +1,29 @@
 unilur
 ================
 
+
+nil
+cell-output-stdout
+true
+nil
+nil
+cell-output-stdout
+nil
+nil
+true
+nil
+Output created: example.html
+
+
+
+TODO https://stackoverflow.com/a/74650744/1395352
+
+scss in _extensions/unilur/unilur.scss
+
+Act on those callout using this [lua filter](https://quarto.org/docs/prerelease/1.3/ast.html#example-callouts)
+
+https://github.com/quarto-dev/quarto-cli/blob/b3c70af8c5d0d02e3334e1362abe9593d94f97cd/tests/docs/smoke-all/2022/11/29/callout_constructor.lua#L4
+
 ## Aim
 
 Convert [{unilur}](https://github.com/koncina/unilur) developed by
@@ -67,7 +90,7 @@ People who developed and released extensions I got inspiration from:
 
 Moreover:
 
-- [Christophe Dervieux](https://github.com/cderv) for precious advises
+- [Christophe Dervieux](https://github.com/cderv) for precious advises and time
 - [Mickaël Canouil](https://github.com/mcanouil/) for maintaining the
   [awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 
@@ -84,7 +107,112 @@ Moreover:
 
 This helped me developing this extension.
 
-To get the intermediate markdown document:
+### Get the `Pandoc` structure after the `lua` filter
+
+Here is described [here in the docs](https://quarto.org/docs/extensions/lua.html#native-format)
+
+``` yaml
+format: native
+```
+
+Which returns sometimes like this:
+
+<details>
+<summary>
+pandoc AST
+</summary>
+
+``` 
+Pandoc
+  Meta
+    { unMeta =
+        fromList
+          [ ( "biblio-config" , MetaBool True )
+          , ( "labels"
+            , MetaMap
+                (fromList
+                   [ ( "abstract" , MetaInlines [ Str "Abstract" ] )
+                   , ( "affiliations"
+                     , MetaInlines [ Str "Affiliations" ]
+                     )
+                   , ( "authors" , MetaInlines [ Str "Authors" ] )
+                   , ( "description"
+                     , MetaInlines [ Str "Description" ]
+                     )
+                   , ( "doi" , MetaInlines [ Str "Doi" ] )
+                   , ( "modified" , MetaInlines [ Str "Modified" ] )
+                   , ( "published" , MetaInlines [ Str "Published" ] )
+                   ])
+            )
+          , ( "solution" , MetaBool True )
+          , ( "title"
+            , MetaInlines [ Str "Unilur" , Space , Str "Example" ]
+            )
+          ]
+    }
+  [ Header 2 ( "usage" , [] , [] ) [ Str "Usage" ]
+  , BulletList
+      [ [ Plain
+            [ Strong [ Str "Activate" ]
+            , Space
+            , Str "the"
+            , Space
+            , Str "extension"
+            , Space
+            , Str "by"
+            , Space
+            , Str "adding"
+            , Space
+            , Str "the"
+            , Space
+            , Str "following"
+            , Space
+            , Str "lines"
+            , Space
+            , Str "to"
+            , Space
+            , Str "your"
+            , Space
+            , Str "YAML"
+            , Space
+            , Str "header:"
+            ]
+        ]
+      ]
+  , CodeBlock
+      ( "" , [ "yaml" ] , [] ) "filters:\n  - unilur\n"
+  , BulletList
+      [ [ Plain
+            [ Strong [ Str "Solution" ]
+            , Space
+            , Str "code"
+            , Space
+            , Str "blocks"
+            , Space
+            , Str "are"
+            , Space
+[...]
+  , BulletList
+      [ [ Plain
+            [ Str "Solution"
+            , Space
+            , Str "with"
+            , Space
+            , Code ( "" , [] , [] ) "collapse: true"
+            ]
+        ]
+      ]
+  , Div
+      ( "" , [ "cell" ] , [ ( "solution" , "true" ) ] )
+      [ CodeBlock
+          ( "" , [ "r" , "cell-code" ] , [] ) "1 + 2\n## [1] 3"
+      ]
+  ]
+```
+
+</details>
+
+### To get the intermediate markdown document
 
     quarto render example.qmd -M keep-md:true
 

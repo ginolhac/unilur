@@ -1,8 +1,6 @@
 ---
 title: "Unilur Example"
-format:
-  html:
-    theme: cosmo
+format: html
 filters:
   - unilur
 solution: true
