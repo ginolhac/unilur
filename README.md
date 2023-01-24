@@ -2,27 +2,12 @@ unilur
 ================
 
 
-nil
-cell-output-stdout
-true
-nil
-nil
-cell-output-stdout
-nil
-nil
-true
-nil
-Output created: example.html
-
-
-
 TODO https://stackoverflow.com/a/74650744/1395352
 
 scss in _extensions/unilur/unilur.scss
 
 Act on those callout using this [lua filter](https://quarto.org/docs/prerelease/1.3/ast.html#example-callouts)
 
-https://github.com/quarto-dev/quarto-cli/blob/b3c70af8c5d0d02e3334e1362abe9593d94f97cd/tests/docs/smoke-all/2022/11/29/callout_constructor.lua#L4
 
 ## Aim
 
