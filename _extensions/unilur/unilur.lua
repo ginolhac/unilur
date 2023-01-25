@@ -1,14 +1,40 @@
-function Div(el)
-  print(el.content)
-  if el.classes:includes("cell") and el.attributes["unilur-solution"] == "true" then
-    print("Solution!")
-    el.attributes["unilur=solution"] = nil
-    return {quarto.Callout({
-      content =  { pandoc.Div(el) },
-      caption = "Solution",
-      collapse = true,
-      type = "note"
-      })}
+-- Inspired from JJAlaire
+-- https://github.com/quarto-ext/code-filename/blob/main/_extensions/code-filename/code-filename.lua
+-- And Andrie
+-- https://github.com/andrie/reveal-auto-agenda/blob/main/_extensions/reveal-auto-agenda/reveal-auto-agenda.lua
+-- With precious help from Christophe Dervieux
+
+local options_solution = nil
+-- permitted options include:
+-- solution: true/false
+local function read_meta(meta)
+  local options = meta["solution"]
+  if options ~= nil then
+    options_solution = options
   end
-  -- FIXME when solution true and main solution false should discard chunk
 end
+
+
+function Div(el)
+  if el.classes:includes("cell") and el.attributes["unilur-solution"] == "true" then
+    el.attributes["unilur-solution"] = nil
+    if options_solution then
+      return {quarto.Callout({
+        content =  { el },
+        caption = "Solution",
+        collapse = true,
+        type = "note"
+        })}
+    else
+      return {} -- remove the solution chunks for questions
+    end
+  end
+end
+
+
+-- Run in two passes so we process metadata
+-- and then process the divs
+return {
+  {Meta = read_meta},
+  {Div = Div}
+}
