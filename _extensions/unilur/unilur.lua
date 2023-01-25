@@ -8,7 +8,7 @@ local options_solution = nil
 -- permitted options include:
 -- solution: true/false
 local function read_meta(meta)
-  local options = meta["solution"]
+  local options = meta["show-solution"]
   if options ~= nil then
     options_solution = options
   end
@@ -18,6 +18,7 @@ end
 function Div(el)
   if el.classes:includes("cell") and el.attributes["unilur-solution"] == "true" then
     el.attributes["unilur-solution"] = nil
+    -- Embed solution code/block inside a callout if global option is true
     if options_solution then
       return {quarto.Callout({
         content =  { el },

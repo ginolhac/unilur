@@ -35,13 +35,13 @@ filters:
 ```
 
 - **Solution** code blocks are either **highlighted** or ~~discarded~~
-  according to the `solution` Boolean and the YAML header:
+  according to the `show-solution` Boolean and the YAML header:
 
 ``` yaml
-solution: true # or false
+show-solution: true # or false
 ```
 
-Of note, if `solution` is absent, it is considered `false`.
+Of note, if `show-solution` is absent, it is considered `false`.
 
 - Add the new variable `unilur-solution` as [hashpipe,
   `#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the
@@ -80,7 +80,9 @@ Moreover:
 
 ### TODO
 
-Create a custom callout
+- Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`)
+- Add option for a peculiar solution code/block to **not** be collapsed
+- Create a custom callout
 
 https://stackoverflow.com/a/74650744/1395352
 
@@ -92,7 +94,7 @@ This helped me developing this extension.
 
 ### Get the `Pandoc` structure after the `lua` filter
 
-Here is described [here in the docs](https://quarto.org/docs/extensions/lua.html#native-format)
+Described [here in the docs](https://quarto.org/docs/extensions/lua.html#native-format)
 
 ``` yaml
 format: native
