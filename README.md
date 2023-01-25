@@ -2,13 +2,6 @@ unilur
 ================
 
 
-TODO https://stackoverflow.com/a/74650744/1395352
-
-scss in _extensions/unilur/unilur.scss
-
-Act on those callout using this [lua filter](https://quarto.org/docs/prerelease/1.3/ast.html#example-callouts)
-
-
 ## Aim
 
 Convert [{unilur}](https://github.com/koncina/unilur) developed by
@@ -17,7 +10,12 @@ Convert [{unilur}](https://github.com/koncina/unilur) developed by
 more than the hiding/highlighting of **solution** code chunks for
 teaching practicals.
 
+
+
 ## Installation
+
+**Important**: this extension uses [custom AST](https://quarto.org/docs/prerelease/1.3/custom-ast-nodes/callout.html) only present with Quarto **>= 1.3** (see [release notes](https://quarto.org/docs/prerelease/1.3/))
+
 
 ``` bash
 quarto install extension ginolhac/unilur
@@ -45,21 +43,21 @@ solution: true # or false
 
 Of note, if `solution` is absent, it is considered `false`.
 
-- Add the new variable `solution` as [hashpipe,
+- Add the new variable `unilur-solution` as [hashpipe,
   `#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the
   code chunks that are part of practical answers. Otherwise, chunks are
   left untouched.
 
 <!-- -->
 
-    #| solution: true
+    #| unilur-solution: true
 
 See the joined
 [`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd).
 
 ## Outputs
 
-| Example `solution: true`                    | Example `solution: false`                       |
+| Example `unilur-solution: true`                    | Example `unilur-solution: false`                       |
 |---------------------------------------------|-------------------------------------------------|
 | ![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png) |
 
@@ -79,14 +77,14 @@ Moreover:
 - [Mickaël Canouil](https://github.com/mcanouil/) for maintaining the
   [awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 
+
 ### TODO
 
-- Collapse boxes toggle like [original
-  {unilur}](http://koncina.github.io/unilur/articles/custom-boxes.html)
-- Constant `code-collapse: true` so green frame encompasses code output?
-- Better CSS rules:
-  - `Solution` code header in main font)
-  - Dark mode not really working
+Create a custom callout
+
+https://stackoverflow.com/a/74650744/1395352
+
+scss in _extensions/unilur/unilur.scss
 
 ### Debugging
 
