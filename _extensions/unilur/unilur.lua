@@ -5,7 +5,6 @@
 -- With precious help from Christophe Dervieux
 
 local options_solution = nil
-local options_collapse = true
 -- permitted options include:
 -- solution: true/false
 local function read_meta(meta)
@@ -17,6 +16,7 @@ end
 
 
 local function Div(el)
+  local options_collapse = true
   if el.classes:includes("cell") and el.attributes["unilur-solution"] == "true" then
     el.attributes["unilur-solution"] = nil
     -- Embed solution code/block inside a callout if global option is true
