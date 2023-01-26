@@ -9,7 +9,7 @@ show-solution: true
 embed-resources: true
 ---
 
-## Usage
+## Usage once extension installed
 
 - **Activate** the extension by adding the following lines to your YAML header:
 
