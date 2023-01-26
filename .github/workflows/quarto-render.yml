@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Render
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: pre-release
+
+      # Renv actions
+      - uses: r-lib/actions/setup-renv@v2
+        with:
+          cache-version: 1
+
+      - name: Render Quarto file
+        uses: quarto-dev/quarto-actions/render@v2
+        with:
+          path: example.qmd

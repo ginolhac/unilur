@@ -81,6 +81,9 @@ Moreover:
 - Add tests.
 - GA to render the `example.qmd`.
 - Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
+    + Idea from Christophe Dervieux: treat `div` attribut
+    + Get `el` content and iterate with `walk()`
+    + Add a filter `CodeBlock` which remove the `unilur` options
 - Create a custom callout (with icon), right now it is a CSS hack on the less used callout `caution`.
 
 ### Debugging
