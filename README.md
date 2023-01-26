@@ -10,8 +10,6 @@ Convert [{unilur}](https://github.com/koncina/unilur) developed by
 more than the hiding/highlighting of **solution** code chunks for
 teaching practicals.
 
-
-
 ## Installation
 
 **Important**: this extension uses [custom AST](https://quarto.org/docs/prerelease/1.3/custom-ast-nodes/callout.html) only present with Quarto **>= 1.3** (see [release notes](https://quarto.org/docs/prerelease/1.3/))
@@ -41,8 +39,6 @@ filters:
 show-solution: true # or false
 ```
 
-Of note, if `show-solution` is absent, it is considered `false`.
-
 - Add the new variable `unilur-solution` as [hashpipe,
   `#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the
   code chunks that are part of practical answers. Otherwise, chunks are
@@ -52,8 +48,10 @@ Of note, if `show-solution` is absent, it is considered `false`.
 
     #| unilur-solution: true
 
-See the joined
-[`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd).
+Of note, if `show-solution` is absent, it is considered `false`.
+
+Solution blocks are collapsed by default but can be shown with the chunk option `unilur-collapse` (see example below).
+
 
 ## Outputs
 
@@ -73,20 +71,18 @@ People who developed and released extensions I got inspiration from:
 
 Moreover:
 
-- [Christophe Dervieux](https://github.com/cderv) for precious advises and time
+- [Christophe Dervieux](https://github.com/cderv) for precious advises and his precious time
 - [Mickaël Canouil](https://github.com/mcanouil/) for maintaining the
   [awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 
 
 ### TODO
 
-- Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`)
-- Add option for a peculiar solution code/block to **not** be collapsed
-- Create a custom callout
-
-https://stackoverflow.com/a/74650744/1395352
-
-scss in _extensions/unilur/unilur.scss
+- Add Check on Quarto version.
+- Add tests.
+- GA to render the `example.qmd`.
+- Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
+- Create a custom callout (with icon), right now it is a CSS hack on the less used callout `caution`.
 
 ### Debugging
 
@@ -100,7 +96,7 @@ Described [here in the docs](https://quarto.org/docs/extensions/lua.html#native-
 format: native
 ```
 
-Which returns sometimes like this:
+Which returns something like this:
 
 <details>
 <summary>
