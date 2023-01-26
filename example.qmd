@@ -1,11 +1,11 @@
 ---
 title: "Unilur Example"
-format:
+format: 
   html:
-    theme: cosmo
+    theme: unilur.scss
 filters:
   - unilur
-solution: true
+show-solution: false
 ---
 
 ## Usage
@@ -15,23 +15,20 @@ solution: true
 ``` yaml
 filters:
   - unilur
+show-solution: true # or false
 ```
 
-- **Solution** code blocks are **highlighted** or ~~discarded~~ according to the `solution` Boolean and the YAML header:
+- **Solution** code blocks are **highlighted** or ~~discarded~~ according to the chunk option `unilur-solution` Boolean and the global option `show-solution` in the YAML header.
 
-``` yaml
-solution: true # or false
-```
-
-Of note, if `solution` is absent, it is considered `false`.
+Of note, if `show-solution` is absent, it is considered `false`.
 
 
-### Example with `solution: true`
+### Example with `unilur-solution: true`
 
 - Code chunk with `echo: fenced`
 
 ```{r}
-#| solution: true
+#| unilur-solution: true
 #| echo: fenced
 
 1 + 1
@@ -45,11 +42,11 @@ Of note, if `solution` is absent, it is considered `false`.
 1 + 1
 ```
 
-- Solution with `collapse: true` 
+- Solution with `unilur-collapse: false` 
 
 ```{r}
-#| solution: true
-#| collapse: true
+#| unilur-solution: true
+#| unilur-collapse: false
 
 1 + 2
 ```

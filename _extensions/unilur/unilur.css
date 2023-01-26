@@ -1,58 +1,16 @@
 
-/* inspired from JJAllaire https://github.com/quarto-ext/code-filename/blob/main/_extensions/code-filename/code-filename.css */
-.code-with-solution .code-with-solution-header {
-  margin-bottom: 0;
-  padding-bottom: 2px;
-  padding-top: 2px;
-  padding-left: 0.7em;
-  border: var(--quarto-border-width) solid var(--quarto-border-color);
-  border-radius: var(--quarto-border-radius);
-  border-bottom: 0;
-  border-bottom-left-radius: 4%;
-  border-bottom-right-radius: 4%;
+div.callout-caution.callout {
+  border-left-color: #12a629 !important;
 }
 
-.code-with-solution div.sourceCode,
-.reveal .code-with-solution-header div.sourceCode {
-  margin-top: 0px;
-  border-top-left-radius: 0%;
-  border-top-right-radius: 0%;
+div.callout-caution.callout-style-default > .callout-header {
+  background-color: #ceffd0 !important;
 }
 
-.code-with-solution .code-with-solution-header pre {
-  margin-bottom: 0;
+div.callout-caution.icon .callout-icon {
+  display: unset !important;
 }
 
-.code-with-solution div.sourceCode, .reveal .code-with-solution-header div.sourceCode {
-    background-color: rgba(230, 255, 231, 1);
-    border: 1px solid rgba(172, 255, 175, 1);
-}
-
-.code-with-solution .code-with-solution-header,
-.code-with-solution .code-with-solution-header .sourceCode pre {
-  /*font-family: var(--bs-font-sans-serif) !important; */
-  background-color: rgba(172, 255, 175, 1);
-}
-
-
-.code-with-solution  .sourceCode pre code {
-  margin: 5px;
-  background-color: #f5f5f5;
-  border: 1px solid #cccccc;
-  border-radius: var(--quarto-border-radius);
-}
-
-
-.quarto-dark .code-with-solution
-.quarto-dark .code-with-solution div.sourceCode pre {
-  background-color: #555;
-}
-
-.code-with-filename .code-with-filename-header strong {
-  font-weight: 400;
-}
-
-.code-with-filename .code-with-filename-header pre {
-  color: #003B4F;
-  font-family: var(--bs-font-sans-serif);
+div.callout-caution.callout-captioned .callout-icon::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16"><path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/><path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg>') ;
 }

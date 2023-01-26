@@ -1,6 +1,7 @@
 unilur
 ================
 
+
 ## Aim
 
 Convert [{unilur}](https://github.com/koncina/unilur) developed by
@@ -10,6 +11,9 @@ more than the hiding/highlighting of **solution** code chunks for
 teaching practicals.
 
 ## Installation
+
+**Important**: this extension uses [custom AST](https://quarto.org/docs/prerelease/1.3/custom-ast-nodes/callout.html) only present with Quarto **>= 1.3** (see [release notes](https://quarto.org/docs/prerelease/1.3/))
+
 
 ``` bash
 quarto install extension ginolhac/unilur
@@ -29,29 +33,29 @@ filters:
 ```
 
 - **Solution** code blocks are either **highlighted** or ~~discarded~~
-  according to the `solution` Boolean and the YAML header:
+  according to the `show-solution` Boolean and the YAML header:
 
 ``` yaml
-solution: true # or false
+show-solution: true # or false
 ```
 
-Of note, if `solution` is absent, it is considered `false`.
-
-- Add the new variable `solution` as [hashpipe,
+- Add the new variable `unilur-solution` as [hashpipe,
   `#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the
   code chunks that are part of practical answers. Otherwise, chunks are
   left untouched.
 
 <!-- -->
 
-    #| solution: true
+    #| unilur-solution: true
 
-See the joined
-[`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd).
+Of note, if `show-solution` is absent, it is considered `false`.
+
+Solution blocks are collapsed by default but can be shown with the chunk option `unilur-collapse` (see example below).
+
 
 ## Outputs
 
-| Example `solution: true`                    | Example `solution: false`                       |
+| Example `unilur-solution: true`                    | Example `unilur-solution: false`                       |
 |---------------------------------------------|-------------------------------------------------|
 | ![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png) |
 
@@ -67,24 +71,129 @@ People who developed and released extensions I got inspiration from:
 
 Moreover:
 
-- [Christophe Dervieux](https://github.com/cderv) for precious advises
+- [Christophe Dervieux](https://github.com/cderv) for precious advises and his precious time
 - [Mickaël Canouil](https://github.com/mcanouil/) for maintaining the
   [awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 
+
 ### TODO
 
-- Collapse boxes toggle like [original
-  {unilur}](http://koncina.github.io/unilur/articles/custom-boxes.html)
-- Constant `code-collapse: true` so green frame encompasses code output?
-- Better CSS rules:
-  - `Solution` code header in main font)
-  - Dark mode not really working
+- Add Check on Quarto version.
+- Add tests.
+- GA to render the `example.qmd`.
+- Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
+- Create a custom callout (with icon), right now it is a CSS hack on the less used callout `caution`.
 
 ### Debugging
 
 This helped me developing this extension.
 
-To get the intermediate markdown document:
+### Get the `Pandoc` structure after the `lua` filter
+
+Described [here in the docs](https://quarto.org/docs/extensions/lua.html#native-format)
+
+``` yaml
+format: native
+```
+
+Which returns something like this:
+
+<details>
+<summary>
+pandoc AST
+</summary>
+
+``` 
+Pandoc
+  Meta
+    { unMeta =
+        fromList
+          [ ( "biblio-config" , MetaBool True )
+          , ( "labels"
+            , MetaMap
+                (fromList
+                   [ ( "abstract" , MetaInlines [ Str "Abstract" ] )
+                   , ( "affiliations"
+                     , MetaInlines [ Str "Affiliations" ]
+                     )
+                   , ( "authors" , MetaInlines [ Str "Authors" ] )
+                   , ( "description"
+                     , MetaInlines [ Str "Description" ]
+                     )
+                   , ( "doi" , MetaInlines [ Str "Doi" ] )
+                   , ( "modified" , MetaInlines [ Str "Modified" ] )
+                   , ( "published" , MetaInlines [ Str "Published" ] )
+                   ])
+            )
+          , ( "solution" , MetaBool True )
+          , ( "title"
+            , MetaInlines [ Str "Unilur" , Space , Str "Example" ]
+            )
+          ]
+    }
+  [ Header 2 ( "usage" , [] , [] ) [ Str "Usage" ]
+  , BulletList
+      [ [ Plain
+            [ Strong [ Str "Activate" ]
+            , Space
+            , Str "the"
+            , Space
+            , Str "extension"
+            , Space
+            , Str "by"
+            , Space
+            , Str "adding"
+            , Space
+            , Str "the"
+            , Space
+            , Str "following"
+            , Space
+            , Str "lines"
+            , Space
+            , Str "to"
+            , Space
+            , Str "your"
+            , Space
+            , Str "YAML"
+            , Space
+            , Str "header:"
+            ]
+        ]
+      ]
+  , CodeBlock
+      ( "" , [ "yaml" ] , [] ) "filters:\n  - unilur\n"
+  , BulletList
+      [ [ Plain
+            [ Strong [ Str "Solution" ]
+            , Space
+            , Str "code"
+            , Space
+            , Str "blocks"
+            , Space
+            , Str "are"
+            , Space
+[...]
+  , BulletList
+      [ [ Plain
+            [ Str "Solution"
+            , Space
+            , Str "with"
+            , Space
+            , Code ( "" , [] , [] ) "collapse: true"
+            ]
+        ]
+      ]
+  , Div
+      ( "" , [ "cell" ] , [ ( "solution" , "true" ) ] )
+      [ CodeBlock
+          ( "" , [ "r" , "cell-code" ] , [] ) "1 + 2\n## [1] 3"
+      ]
+  ]
+```
+
+</details>
+
+### To get the intermediate markdown document
 
     quarto render example.qmd -M keep-md:true
 
