@@ -78,7 +78,6 @@ Moreover:
 
 ### TODO
 
-- Add Check on Quarto version.
 - Add tests.
 - GA to render the `example.qmd`.
 - Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
