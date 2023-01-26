@@ -22,7 +22,7 @@ jobs:
       # Renv actions
       - uses: r-lib/actions/setup-renv@v2
         with:
-          cache-version: 1
+          bypass-cache: true
 
       - name: Render Quarto file
         uses: quarto-dev/quarto-actions/render@v2
