@@ -24,11 +24,7 @@ jobs:
       - uses: r-lib/actions/setup-renv@v2
 
       - name: Render Quarto file
-        uses: quarto-dev/quarto-actions/render@v2
+        uses: quarto-dev/quarto-actions/publish@v2
         with:
           path: example.qmd
-      - name: Move to docs
-        run: |
-          ls -l docs/
-          mv -f example.html docs/
-          ls -l docs/
+          target: gh-pages
