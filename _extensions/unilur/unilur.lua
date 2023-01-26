@@ -5,6 +5,7 @@
 -- With precious help from Christophe Dervieux
 
 local options_solution = nil
+local options_collapse = true
 -- permitted options include:
 -- solution: true/false
 local function read_meta(meta)
@@ -15,22 +16,35 @@ local function read_meta(meta)
 end
 
 
-function Div(el)
+local function Div(el)
   if el.classes:includes("cell") and el.attributes["unilur-solution"] == "true" then
     el.attributes["unilur-solution"] = nil
     -- Embed solution code/block inside a callout if global option is true
     if options_solution then
+      if quarto.doc.hasBootstrap() or quarto.doc.isFormat("revealjs") then
+        quarto.doc.addHtmlDependency({
+          name = "unilur",
+          version = "0.0.1",
+          stylesheets = {"unilur.css"}
+        })
+      end
+      -- collapse callout by default except specified
+      if el.attributes["unilur-collapse"] == "false" then
+        options_collapse = false
+      end
       return {quarto.Callout({
         content =  { el },
+        icon = true,
         caption = "Solution",
-        collapse = true,
-        type = "note"
+        collapse = options_collapse,
+        type = "caution"
         })}
     else
       return {} -- remove the solution chunks for questions
     end
   end
 end
+
 
 
 -- Run in two passes so we process metadata
