@@ -6,6 +6,7 @@ format:
 filters:
   - unilur
 show-solution: true
+embed-resources: true
 ---
 
 ## Usage
