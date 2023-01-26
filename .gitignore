@@ -2,7 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
-example.html
+/example.html
 *.json
 *_files/
 /renv/

@@ -51,4 +51,20 @@ Of note, if `show-solution` is absent, it is considered `false`.
 1 + 2
 ```
 
+- Solution with markdown text (`{block}`):
 
+```{block}
+#| unilur-solution: true
+#| unilur-collapse: false
+For text with **bold** or warning people about CO~2~ atmospheric concentration
+```
+
+Any machinery supported by Quarto can be used:
+
+- Python Code chunk with `unilur-solution: true`
+
+```{python}
+#| unilur-solution: true
+for i in [3, 5, 6]:
+  print(i)
+```
