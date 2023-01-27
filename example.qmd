@@ -1,5 +1,5 @@
 ---
-title: "Unilur Example"
+title: "[Unilur](https://github.com/ginolhac/unilur) Example"
 format: 
   html:
     theme: unilur.scss

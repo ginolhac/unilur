@@ -44,7 +44,6 @@ show-solution: true # or false
   code chunks that are part of practical answers. Otherwise, chunks are
   left untouched.
 
-<!-- -->
 
     #| unilur-solution: true
 
@@ -55,7 +54,7 @@ Solution blocks are collapsed by default but can be shown with the chunk option 
 
 ## Outputs
 
-| Example `unilur-solution: true`   (file [`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd))        | Example `unilur-solution: false`  (rendered: [`example.html`](https://ginolhac.github.io/unilur/example.html))   |
+| Example `show-solution: true`   (file [`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd))        | Example `show-solution: false`  (rendered: [`example.html`](https://ginolhac.github.io/unilur/example.html))   |
 |---------------------------------------------|-------------------------------------------------|
 | ![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png) |
 
@@ -78,13 +77,12 @@ Moreover:
 
 ### TODO
 
+- Create a custom callout (with icon), right now it is a CSS hack on the less used callout `caution`.
 - Add tests.
-- GA to render the `example.qmd`.
 - Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
     + Idea from Christophe Dervieux: treat `div` attribut
     + Get `el` content and iterate with `walk()`
     + Add a filter `CodeBlock` which remove the `unilur` options
-- Create a custom callout (with icon), right now it is a CSS hack on the less used callout `caution`.
 
 ### Debugging
 
