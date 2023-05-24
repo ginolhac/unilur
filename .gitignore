@@ -8,3 +8,5 @@
 /renv/
 .Rprofile
 *.html
+
+/.luarc.json

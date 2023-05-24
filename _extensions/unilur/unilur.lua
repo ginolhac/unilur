@@ -24,7 +24,7 @@ local function Div(el)
       if quarto.doc.hasBootstrap() or quarto.doc.isFormat("revealjs") then
         quarto.doc.addHtmlDependency({
           name = "unilur",
-          version = "0.0.1",
+          version = "0.0.2",
           stylesheets = {"unilur.css"}
         })
       end
@@ -34,8 +34,8 @@ local function Div(el)
       end
       return {quarto.Callout({
         content =  { el },
-        icon = true,
-        caption = "Solution",
+        icon = false,
+        title = "Solution",
         collapse = options_collapse,
         type = "caution"
         })}
