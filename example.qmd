@@ -12,9 +12,12 @@ embed-resources: true
 - **Activate** the extension by adding the following lines to your YAML header:
 
 ``` yaml
-filters:
-  - unilur
-show-solution: true # or false
+format:
+  unilur-question-html: default
+  unilur-solution-html:
+    # You have to specify a different output file otherwise they will 
+    # overwrite themselves
+    output-file: solution.html 
 ```
 
 - **Solution** code blocks are **highlighted** or ~~discarded~~ according to the chunk option `unilur-solution` Boolean and the global option `show-solution` in the YAML header.
@@ -73,3 +76,19 @@ Any machinery supported by Quarto can be used:
 for i in [3, 5, 6]:
   print(i)
 ```
+
+You can also include `div` labels:
+
+````
+
+::: unilur-solution
+
+Here is a solution that is inside a div. The contents of this will only be shown
+in the solution document.
+
+:::
+
+````
+
+The advantage of working inside the div labels is that standard code formatting and
+highlighting will apply, and code can be executed alongside standard text.
