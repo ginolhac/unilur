@@ -7,7 +7,7 @@ contributes:
     common:
       filters:
         - unilur.lua
-      show-solution: false
+      show-solution: true
     html:
     #common:
     #  filters:
