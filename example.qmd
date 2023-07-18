@@ -1,7 +1,7 @@
 ---
 title: "[Unilur](https://github.com/ginolhac/unilur) Example"
 format: 
-  unilur-html: default
+  unilur-question-html: default
   unilur-solution-html:
     output-file: solution.html
 embed-resources: true
