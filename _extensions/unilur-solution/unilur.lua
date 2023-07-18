@@ -17,7 +17,7 @@ end
 
 local function Div(el)
   local options_collapse = true
-  if el.classes:includes("cell") and el.attributes["unilur-solution"] == "true" then
+  if (el.classes:includes("cell") and el.attributes["unilur-solution"] == "true") or (el.classes:includes("unilur-solution")) then
     el.attributes["unilur-solution"] = nil
     -- Embed solution code/block inside a callout if global option is true
     if options_solution then

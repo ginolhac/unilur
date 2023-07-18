@@ -52,11 +52,17 @@ Of note, if `show-solution` is absent, it is considered `false`.
 
 - Solution with markdown text (`{block}`):
 
-```{block}
+````{block}
 #| unilur-solution: true
 #| unilur-collapse: false
 For text with **bold** or warning people about CO~2~ atmospheric concentration
+
+```{{r}}
+
+1 + 1
 ```
+
+````
 
 Any machinery supported by Quarto can be used:
 
