@@ -3,7 +3,7 @@ title: "[Unilur](https://github.com/ginolhac/unilur) Example"
 format: 
   unilur-question-html: default
   unilur-solution-html:
-    output-file: solution.html
+    output-file: example-solution.html
 embed-resources: true
 ---
 
@@ -17,8 +17,11 @@ format:
   unilur-solution-html:
     # You have to specify a different output file otherwise they will 
     # overwrite themselves
-    output-file: solution.html 
+    output-file: example-solution.html 
 ```
+
+When you call `quarto render`, two HTML files will be produced. The one named
+`example-solution.html` will have the solution blocks included.
 
 - **Solution** code blocks are **highlighted** or ~~discarded~~ according to the chunk option `unilur-solution` Boolean and the global option `show-solution` in the YAML header.
 
@@ -77,18 +80,23 @@ for i in [3, 5, 6]:
   print(i)
 ```
 
-You can also include `div` labels:
-
-````
+You can also include `div` labels with `unilur-solution`. 
+Note the solution will only show up in the solution file.
 
 ::: unilur-solution
 
 Here is a solution that is inside a div. The contents of this will only be shown
-in the solution document.
+in the solution document. Source code highlighting is preserved inside the `div`.
+
+```{r}
+#| eval: false
+
+df <- sample(mtcars,  size = 5)
+head(df)
+
+```
 
 :::
-
-````
 
 The advantage of working inside the div labels is that standard code formatting and
 highlighting will apply, and code can be executed alongside standard text.
