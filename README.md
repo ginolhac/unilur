@@ -28,8 +28,12 @@ extensions](https://quarto.org/docs/extensions/#managing-extensions).
   header:
 
 ``` yaml
-filters:
-  - unilur
+format:
+  unilur-html: default
+  unilur-html+solution:
+    # You have to specify a different output file otherwise they will 
+    # overwrite themselves
+    output-file: example-solution.html 
 ```
 
 - **Solution** code blocks are either **highlighted** or ~~discarded~~
