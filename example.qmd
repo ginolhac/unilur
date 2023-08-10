@@ -1,11 +1,9 @@
 ---
 title: "[Unilur](https://github.com/ginolhac/unilur) Example"
 format: 
-  html:
-    theme: unilur.scss
-filters:
-  - unilur
-show-solution: true
+  unilur-html: default
+  unilur-html+solution:
+    output-file: example-solution.html
 embed-resources: true
 ---
 
@@ -14,10 +12,16 @@ embed-resources: true
 - **Activate** the extension by adding the following lines to your YAML header:
 
 ``` yaml
-filters:
-  - unilur
-show-solution: true # or false
+format:
+  unilur-html: default
+  unilur-html+solution:
+    # You have to specify a different output file otherwise they will 
+    # overwrite themselves
+    output-file: example-solution.html 
 ```
+
+When you call `quarto render`, two HTML files will be produced. The one named
+`example-solution.html` will have the solution blocks included.
 
 - **Solution** code blocks are **highlighted** or ~~discarded~~ according to the chunk option `unilur-solution` Boolean and the global option `show-solution` in the YAML header.
 
@@ -52,13 +56,6 @@ Of note, if `show-solution` is absent, it is considered `false`.
 1 + 2
 ```
 
-- Solution with markdown text (`{block}`):
-
-```{block}
-#| unilur-solution: true
-#| unilur-collapse: false
-For text with **bold** or warning people about CO~2~ atmospheric concentration
-```
 
 Any machinery supported by Quarto can be used:
 
@@ -69,3 +66,40 @@ Any machinery supported by Quarto can be used:
 for i in [3, 5, 6]:
   print(i)
 ```
+
+
+- Solution with markdown text (`{block}`):
+
+````{block}
+#| unilur-solution: true
+#| unilur-collapse: false
+For text with **bold** or warning people about CO~2~ atmospheric concentration
+
+R code can be displayed but not executed.
+
+```{{r}}
+
+1 + 1
+```
+
+````
+
+You can also include `div` labels with `unilur-solution`. 
+Note the solution will only show up in the solution file.
+
+::: unilur-solution
+
+Here is a solution that is inside a div. The contents of this will only be shown
+in the solution document. Source code highlighting is preserved inside the `div` and executable.
+
+```{r}
+
+sample(CO2,  size = 5) |> 
+  head(5)
+
+```
+
+:::
+
+The advantage of working inside the div labels is that standard code formatting and
+highlighting will apply, and code can be executed alongside standard text.

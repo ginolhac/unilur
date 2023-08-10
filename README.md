@@ -28,8 +28,12 @@ extensions](https://quarto.org/docs/extensions/#managing-extensions).
   header:
 
 ``` yaml
-filters:
-  - unilur
+format:
+  unilur-html: default
+  unilur-html+solution:
+    # You have to specify a different output file otherwise they will 
+    # overwrite themselves
+    output-file: example-solution.html 
 ```
 
 - **Solution** code blocks are either **highlighted** or ~~discarded~~
@@ -80,7 +84,7 @@ Moreover:
 - Create a custom callout (with icon), right now it is a CSS hack on the less used callout `caution`.
 - Add tests.
 - Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
-    + Idea from Christophe Dervieux: treat `div` attribut
+    + Idea from Christophe Dervieux: treat `div` attribute
     + Get `el` content and iterate with `walk()`
     + Add a filter `CodeBlock` which remove the `unilur` options
 
