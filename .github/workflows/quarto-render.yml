@@ -26,4 +26,5 @@ jobs:
       - name: Publish Quarto file
         uses: quarto-dev/quarto-actions/publish@v2
         with:
-          target:gh-pages
+          path: example.qmd
+          target: gh-pages
