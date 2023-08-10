@@ -1,8 +1,8 @@
 ---
 title: "[Unilur](https://github.com/ginolhac/unilur) Example"
 format: 
-  unilur-question-html: default
-  unilur-solution-html:
+  unilur-html: default
+  unilur-html+solution:
     output-file: example-solution.html
 embed-resources: true
 ---
@@ -13,8 +13,8 @@ embed-resources: true
 
 ``` yaml
 format:
-  unilur-question-html: default
-  unilur-solution-html:
+  unilur-html: default
+  unilur-html+solution:
     # You have to specify a different output file otherwise they will 
     # overwrite themselves
     output-file: example-solution.html 
