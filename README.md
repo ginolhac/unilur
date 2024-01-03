@@ -84,7 +84,7 @@ Moreover:
 - Create a custom callout (with icon), right now it is a CSS hack on the less used callout `caution`.
 - Add tests.
 - Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
-    + Idea from Christophe Dervieux: treat `div` attribut
+    + Idea from Christophe Dervieux: treat `div` attribute
     + Get `el` content and iterate with `walk()`
     + Add a filter `CodeBlock` which remove the `unilur` options
 

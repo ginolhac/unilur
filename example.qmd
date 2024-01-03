@@ -59,19 +59,6 @@ Of note, if `show-solution` is absent, it is considered `false`.
 1 + 2
 ```
 
-- Solution with markdown text (`{block}`):
-
-````{block}
-#| unilur-solution: true
-#| unilur-collapse: false
-For text with **bold** or warning people about CO~2~ atmospheric concentration
-
-```{{r}}
-
-1 + 1
-```
-
-````
 
 Any machinery supported by Quarto can be used:
 
@@ -83,19 +70,35 @@ for i in [3, 5, 6]:
   print(i)
 ```
 
+
+- Solution with markdown text (`{block}`):
+
+````{block}
+#| unilur-solution: true
+#| unilur-collapse: false
+For text with **bold** or warning people about CO~2~ atmospheric concentration
+
+R code can be displayed but not executed.
+
+```{{r}}
+
+1 + 1
+```
+
+````
+
 You can also include `div` labels with `unilur-solution`. 
 Note the solution will only show up in the solution file.
 
 ::: unilur-solution
 
 Here is a solution that is inside a div. The contents of this will only be shown
-in the solution document. Source code highlighting is preserved inside the `div`.
+in the solution document. Source code highlighting is preserved inside the `div` and executable.
 
 ```{r}
-#| eval: false
 
-df <- sample(mtcars,  size = 5)
-head(df)
+sample(CO2,  size = 5) |> 
+  head(5)
 
 ```
 
