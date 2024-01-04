@@ -1,5 +1,9 @@
 # Development version
 
+# v0.0.4 2024-01-14
+
+- Custom callout to avoid overwriting the default `caution`
+
 # v0.0.3 2023-08-10
 
 - Both solutions and questions are rendered in one go (@MikeLydeamore #2)
