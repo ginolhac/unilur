@@ -4,6 +4,9 @@ format:
   unilur-html: default
   unilur-html+solution:
     output-file: example-solution.html
+  unilur-pdf: default
+  unilur-pdf+solution:
+    output-file: example-solution.pdf
 embed-resources: true
 ---
 
