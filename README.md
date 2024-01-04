@@ -58,7 +58,15 @@ Solution blocks are collapsed by default but can be shown with the chunk option 
 
 ## Outputs
 
-| Example `show-solution: true`   (file [`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd))        | Example `show-solution: false`  (rendered: [`example.html`](https://ginolhac.github.io/unilur/example.html))   |
+From the Quarto doc [`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd) after running:
+
+``` bash
+quarto render example.qmd
+```
+
+**Both** HTML files are rendered: 
+
+| Example `show-solution: true`   (rendered: [`example-solution.html`](https://ginolhac.github.io/unilur/example-solution.html))        | Example `show-solution: false`  (rendered: [`example.html`](https://ginolhac.github.io/unilur/example.html))   |
 |---------------------------------------------|-------------------------------------------------|
 | ![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png) |
 
@@ -81,7 +89,6 @@ Moreover:
 
 ### TODO
 
-- Create a custom callout (with icon), right now it is a CSS hack on the less used callout `caution`.
 - Add tests.
 - Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
     + Idea from Christophe Dervieux: treat `div` attribute

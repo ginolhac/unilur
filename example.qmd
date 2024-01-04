@@ -10,7 +10,13 @@ format:
 embed-resources: true
 ---
 
-## Usage once extension installed
+```{r}
+#| include: false
+library(reticulate) # for the python example
+```
+
+
+## Usage once extension is installed
 
 - **Activate** the extension by adding the following lines to your YAML header:
 
