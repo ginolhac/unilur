@@ -10,3 +10,6 @@ contributes:
     html: default
     html+solution:
       show-solution: true
+    pdf: default
+    pdf+solution:
+      show-solution: true
