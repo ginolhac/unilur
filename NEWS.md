@@ -1,5 +1,10 @@
 # Development version
 
+# v0.1.0 2024-06-07
+
+- PDF documents (@MikeLydeamore #4)
+
+
 # v0.0.4 2024-01-14
 
 - Custom callout to avoid overwriting the default `caution`

@@ -1,0 +1,13 @@
+Package: placeholder
+Title: Placeholder file for r-dependencies actions
+Version: 0.0.0.9000
+Authors@R: 
+    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Placeholder file for r-dependencies actions.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: 
+    rmarkdown
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1

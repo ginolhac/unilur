@@ -7,6 +7,6 @@
 *_files/
 /renv/
 .Rprofile
+renv.lock
 *.html
-
 /.luarc.json

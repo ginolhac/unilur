@@ -10,12 +10,6 @@ format:
 embed-resources: true
 ---
 
-```{r}
-#| include: false
-library(reticulate) # for the python example
-```
-
-
 ## Usage once extension is installed
 
 - **Activate** the extension by adding the following lines to your YAML header:
@@ -70,7 +64,7 @@ Any machinery supported by Quarto can be used:
 
 - Python Code chunk with `unilur-solution: true`
 
-```{python}
+```{.python}
 #| unilur-solution: true
 for i in [3, 5, 6]:
   print(i)
