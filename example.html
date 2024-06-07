@@ -3170,6 +3170,7 @@ padding-right: 1em;
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#| unilur-solution: true</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> [<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">6</span>]:</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(i)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Caution callouts are classic:</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -3183,10 +3184,24 @@ Danger
 <p>Red expected</p>
 </div>
 </div>
+<p>But tip ones are using a yellow color to better discriminate with the new solution blocks:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Are yellow instead of green-ish (in HTML)</p>
+</div>
+</div>
 <ul>
 <li>Solution with markdown text (<code>{block}</code>):</li>
 </ul>
-<p>You can also include <code>div</code> labels with <code>unilur-solution</code>. Note the solution will only show up in the solution file.</p>
+<p>You can also include <code>div</code> labels with <code>unilur-solution</code>. Note the solution will only show up in the solution file (collapsed box).</p>
 <p>The advantage of working inside the div labels is that standard code formatting and highlighting will apply, and code can be executed alongside standard text.</p>
 </section>
 </section>
