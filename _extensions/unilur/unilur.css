@@ -6,6 +6,36 @@ div.callout-solution.callout-style-default>.callout-header {
   background-color: #ceffd0;
 }
 
+div.callout-tip.callout {
+  border-left-color: #ffec8b;
+}
+
+div.callout-tip.callout-style-default>.callout-header {
+  background-color: #fff9dc;
+}
+
 div.callout-solution.icon .callout-icon {
   display: unset;
 }
+
+h5 { /* Header 5 so questions */
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 1.3em;
+  margin-bottom: 0.6em;
+  color: DarkBlue;
+}
+
+.bonus {
+  border: 2px solid rgb(188, 143, 143);
+  border-radius: 10px;
+  background-color: rgba(188, 143, 143, 0.01);
+  margin-left: -0.5em;
+  width: auto;
+  padding-left: 1.1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+  padding-right: 1em;
+}
+

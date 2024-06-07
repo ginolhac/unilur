@@ -19,15 +19,15 @@ local function Div(el)
   local options_collapse = true
   if (el.classes:includes("cell") and el.attributes["unilur-solution"] == "true") or (el.classes:includes("unilur-solution")) then
     el.attributes["unilur-solution"] = nil
+    if quarto.doc.hasBootstrap() or quarto.doc.isFormat("revealjs") then
+      quarto.doc.addHtmlDependency({
+        name = "unilur",
+        version = "0.1.0",
+        stylesheets = {"unilur.css"}
+      })
+    end
     -- Embed solution code/block inside a callout if global option is true
     if options_solution then
-      if quarto.doc.hasBootstrap() or quarto.doc.isFormat("revealjs") then
-        quarto.doc.addHtmlDependency({
-          name = "unilur",
-          version = "0.0.4",
-          stylesheets = {"unilur.css"}
-        })
-      end
       -- collapse callout by default except specified
       if el.attributes["unilur-collapse"] == "false" then
         options_collapse = false
