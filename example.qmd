@@ -71,10 +71,20 @@ for i in [3, 5, 6]:
 ```
 
 
+Caution callouts are classic:
+
 ::: {.callout-caution}
 ## Danger
 Red expected
 :::
+
+But tip ones are using a yellow color to better discriminate with the new solution blocks:
+
+::: {.callout-tip}
+## Tip
+Are yellow instead of green-ish (in HTML)
+:::
+
 
 - Solution with markdown text (`{block}`):
 
@@ -93,7 +103,7 @@ R code can be displayed but not executed.
 ````
 
 You can also include `div` labels with `unilur-solution`. 
-Note the solution will only show up in the solution file.
+Note the solution will only show up in the solution file (collapsed box).
 
 ::: unilur-solution
 

@@ -90,6 +90,7 @@ Moreover:
 ### TODO
 
 - Add tests.
+- callout-tip in yellow for PDF output
 - Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
     + Idea from Christophe Dervieux: treat `div` attribute
     + Get `el` content and iterate with `walk()`
