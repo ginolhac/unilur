@@ -12,7 +12,7 @@ teaching practicals.
 
 ## Installation
 
-**Important**: this extension uses [custom AST](https://quarto.org/docs/prerelease/1.3/custom-ast-nodes/callout.html) only present with Quarto **>= 1.3** (see [release notes](https://quarto.org/docs/prerelease/1.3/))
+**Important**: this extension requires Quarto **>= 1.4.538** (current release: **1.4.555**)
 
 
 ``` bash
@@ -25,7 +25,7 @@ extensions](https://quarto.org/docs/extensions/#managing-extensions).
 ## Usage
 
 - **Activate** the extension by adding the following lines to your YAML
-  header:
+  header (you can use only HTML or PDF outputs):
 
 ``` yaml
 format:
@@ -33,7 +33,10 @@ format:
   unilur-html+solution:
     # You have to specify a different output file otherwise they will 
     # overwrite themselves
-    output-file: example-solution.html 
+    output-file: example-solution.html
+  unilur-pdf: default
+  unilur-pdf+solution:
+    output-file: example-solution.pdf
 ```
 
 - **Solution** code blocks are either **highlighted** or ~~discarded~~
@@ -42,6 +45,8 @@ format:
 ``` yaml
 show-solution: true # or false
 ```
+
+### Code chunks
 
 - Add the new variable `unilur-solution` as [hashpipe,
   `#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the
@@ -55,6 +60,26 @@ Of note, if `show-solution` is absent, it is considered `false`.
 
 Solution blocks are collapsed by default but can be shown with the chunk option `unilur-collapse` (see example below).
 
+### Fenced div
+
+    ::: unilur-solution
+    
+    this is not shown in instructions
+    
+    :::
+    
+Fences divs can also be used, and they can contain code chunks too
+
+### Code Blocks
+
+The third possibility is to use `block` chunks with the appropriate chunk option
+
+    ```{block}
+    #| unilur-solution: true
+    this is not shown in instructions
+    
+    ```
+
 
 ## Outputs
 
@@ -64,11 +89,15 @@ From the Quarto doc [`example.qmd`](https://github.com/ginolhac/unilur/blob/main
 quarto render example.qmd
 ```
 
-**Both** HTML files are rendered: 
+**Both HTML** files are rendered along with **both PDFs**
 
-| Example `show-solution: true`   (rendered: [`example-solution.html`](https://ginolhac.github.io/unilur/example-solution.html))        | Example `show-solution: false`  (rendered: [`example.html`](https://ginolhac.github.io/unilur/example.html))   |
+| HTML `show-solution: true`   (rendered: [`example-solution.html`](https://ginolhac.github.io/unilur/example-solution.html))  | HTML `show-solution: false`  (rendered: [`example.html`](https://ginolhac.github.io/unilur/example.html))   |
 |---------------------------------------------|-------------------------------------------------|
-| ![unilur-solution](img/unilur_solution.png) | ![unilur-nosolution](img/unilur_nosolution.png) |
+| ![HTML unilur-solution](img/unilur_solution.png) | ![HTML unilur-nosolution](img/unilur_nosolution.png) |
+
+| PDF `show-solution: true`   (rendered: [`example-solution.pdf`](https://ginolhac.github.io/unilur/example-solution.pdf))  | PDF `show-solution: false`  (rendered: [`example.pdf`](https://ginolhac.github.io/unilur/example.pdf))   |
+|---------------------------------------------|-------------------------------------------------|
+| ![PDF  unilur-solution](img/pdf_unilur_solution.png) | ![PDF unilur-nosolution](img/pdf_unilur_nosolution.png) |
 
 ## Acknowledgements
 
