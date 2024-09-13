@@ -16,7 +16,7 @@ teaching practicals.
 
 
 ``` bash
-quarto install extension ginolhac/unilur
+quarto add ginolhac/unilur
 ```
 
 More details are available in Quarto docs for [managing
