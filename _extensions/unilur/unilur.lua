@@ -5,6 +5,10 @@
 -- With precious help from Christophe Dervieux
 
 local options_solution = nil
+local exr_counter = 0 -- add a counter
+local sol_counter = 0 -- add a counter
+local comment_counter = 0 -- add a counter
+
 -- permitted options include:
 -- solution: true/false
 local function read_meta(meta)
@@ -17,6 +21,23 @@ end
 
 local function Div(el)
   local options_collapse = true
+  -- Modify the numbering of the exercises
+  -- Default for exr is 1.1, 1.2 with a heading mandatory
+  if el.identifier:match("^exr%-") or el.classes:includes("exr") then
+    exr_counter = exr_counter + 1
+
+    -- Add a heading-style line with flat numbering
+    local heading = pandoc.Para{
+      pandoc.Strong{pandoc.Str("Exercise " .. exr_counter .. " ")}
+    }
+
+    -- Insert at top of the content
+    table.insert(el.content, 1, heading)
+
+    return el
+  end
+  
+  -- Solution callout
   if (el.classes:includes("cell") and el.attributes["unilur-solution"] == "true") or (el.classes:includes("unilur-solution")) then
     el.attributes["unilur-solution"] = nil
     if quarto.doc.hasBootstrap() or quarto.doc.isFormat("revealjs") then
@@ -32,10 +53,14 @@ local function Div(el)
       if el.attributes["unilur-collapse"] == "false" then
         options_collapse = false
       end
+      
+      -- Increment solution counter
+      sol_counter = sol_counter + 1
+      
       return {quarto.Callout({
         content =  { el },
         icon = false,
-        title = "Solution",
+        title = pandoc.Para{pandoc.Strong("Solution " .. sol_counter .. " ")}, -- Solution text in bold with number
         collapse = options_collapse,
         type = "solution"
         })}
@@ -43,8 +68,39 @@ local function Div(el)
       return {} -- remove the solution chunks for questions
     end
   end
+  
+  -- Comment callout
+  if (el.classes:includes("cell") and el.attributes["unilur-comment"] == "true") or (el.classes:includes("unilur-comment")) then
+    el.attributes["unilur-comment"] = nil
+    if quarto.doc.hasBootstrap() or quarto.doc.isFormat("revealjs") then
+      quarto.doc.addHtmlDependency({
+        name = "unilur",
+        version = "0.1.0",
+        stylesheets = {"unilur.css"}
+      })
+    end
+    -- Embed solution code/block inside a callout if global option is true
+    if options_solution then
+      -- collapse callout by default except specified
+      if el.attributes["unilur-collapse"] == "false" then
+        options_collapse = false
+      end
+      
+      -- Increment comment counter
+      comment_counter = comment_counter + 1
+      
+      return {quarto.Callout({
+        content =  { el },
+        icon = false,
+        title = pandoc.Para{pandoc.Strong("Comments " .. comment_counter .. " ")}, -- -- Comment text in bold with number
+        collapse = options_collapse,
+        type = "warning" -- use warning callout type for Comment
+        })}
+    else
+      return {} -- remove the comment chunks for questions
+    end
+  end
 end
-
 
 
 -- Run in two passes so we process metadata
@@ -53,3 +109,4 @@ return {
   {Meta = read_meta},
   {Div = Div}
 }
+
