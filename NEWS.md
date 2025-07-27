@@ -1,5 +1,11 @@
 # Development version
 
+# v0.2.0 2025-07-23
+
+- New callout for "Comments" that appears together with solutions if used (@SarahMuse #8)
+- Modify the numbering of the exercises (.exr) and add numbering to solutions and comments (@SarahMuse #8)
+
+
 # v0.1.0 2024-06-07
 
 - PDF documents (@MikeLydeamore #4)
