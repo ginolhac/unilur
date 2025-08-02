@@ -1,3 +1,25 @@
 
-\definecolor{quarto-callout-color}{HTML}{109524}
-\definecolor{quarto-callout-color-frame}{HTML}{B9E5BB}
+\definecolor{quarto-callout-color-solution}{HTML}{109524}
+\definecolor{quarto-callout-color-solution-frame}{HTML}{A6CEA8}
+
+
+\definecolor{quarto-callout-color-comment}{HTML}{E9D4DE}
+\definecolor{quarto-callout-color-comment-frame}{HTML}{B77093}
+
+% Define custom tcolorbox environments
+% one for solution
+\newtcolorbox{callout-solution}[2][]{
+  enhanced,
+  colback=quarto-callout-color-solution!10,
+  colframe=quarto-callout-color-solution-frame,
+  title={#2},
+  #1
+}
+% one for comments
+\newtcolorbox{callout-comment}[2][]{%
+  enhanced,
+  colback=quarto-callout-color-comment!10,
+  colframe=quarto-callout-color-comment-frame,
+  title={#2},
+  #1
+}

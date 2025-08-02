@@ -6,6 +6,14 @@ div.callout-solution.callout-style-default>.callout-header {
   background-color: #ceffd0;
 }
 
+div.callout-comment.callout {
+  border-left-color: #B77093;
+}
+
+div.callout-comment.callout-style-default>.callout-header {
+  background-color: #E9D4DE;
+}
+
 div.callout-tip.callout {
   border-left-color: #ffec8b;
 }
@@ -15,6 +23,10 @@ div.callout-tip.callout-style-default>.callout-header {
 }
 
 div.callout-solution.icon .callout-icon {
+  display: unset;
+}
+
+div.callout-comment.icon .callout-icon {
   display: unset;
 }
 

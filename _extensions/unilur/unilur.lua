@@ -18,6 +18,35 @@ local function read_meta(meta)
   end
 end
 
+-- helper function for rendering cell-code and cell-output for PDF format
+local function stringify_blocks(blocks)
+  local out = {}
+  for _, block in ipairs(blocks) do
+    if block.t == "CodeBlock" then
+      table.insert(out, "\\begin{verbatim}\n" .. block.text .. "\n\\end{verbatim}")
+    elseif block.t == "Para" or block.t == "Plain" then
+      local text = pandoc.utils.stringify(block.content)
+      table.insert(out, text .. "\n")
+    elseif block.t == "Div" then
+      -- Look for cell-output (result of code)
+      if block.classes:includes("cell-output") then
+        -- Recursively stringify contents
+        for _, inner in ipairs(block.content) do
+          if inner.t == "CodeBlock" then
+            table.insert(out, "\\begin{verbatim}\n" .. inner.text .. "\n\\end{verbatim}")
+          elseif inner.t == "Para" or inner.t == "Plain" then
+            table.insert(out, pandoc.utils.stringify(inner.content) .. "\n")
+          else
+            table.insert(out, "% [unhandled output block: " .. inner.t .. "]")
+          end
+        end
+      end
+    else
+      table.insert(out, "% [unhandled block: " .. block.t .. "]")
+    end
+  end
+  return table.concat(out, "\n")
+end
 
 local function Div(el)
   local options_collapse = true
@@ -36,7 +65,7 @@ local function Div(el)
 
     return el
   end
-  
+
   -- Solution callout
   if (el.classes:includes("cell") and el.attributes["unilur-solution"] == "true") or (el.classes:includes("unilur-solution")) then
     el.attributes["unilur-solution"] = nil
@@ -53,22 +82,28 @@ local function Div(el)
       if el.attributes["unilur-collapse"] == "false" then
         options_collapse = false
       end
-      
+
       -- Increment solution counter
       sol_counter = sol_counter + 1
-      
-      return {quarto.Callout({
-        content =  { el },
-        icon = false,
-        title = pandoc.Para{pandoc.Strong("Solution " .. sol_counter .. " ")}, -- Solution text in bold with number
-        collapse = options_collapse,
-        type = "solution"
+
+      if quarto.doc.isFormat("pdf") then
+        local latex_content = stringify_blocks(el.content)
+        local title = "Solution " .. sol_counter .. " "
+        return pandoc.RawBlock("latex", string.format("\\begin{callout-solution}[]{\\textbf{%s}}\n%s\n\\end{callout-solution}", title, latex_content))
+      else
+        return {quarto.Callout({
+          content =  { el },
+          icon = false,
+          title = pandoc.Para{pandoc.Strong("Solution " .. sol_counter .. " ")}, -- Solution text in bold with number
+          collapse = options_collapse,
+          type = "solution"
         })}
+      end
     else
       return {} -- remove the solution chunks for questions
     end
   end
-  
+
   -- Comment callout
   if (el.classes:includes("cell") and el.attributes["unilur-comment"] == "true") or (el.classes:includes("unilur-comment")) then
     el.attributes["unilur-comment"] = nil
@@ -85,23 +120,28 @@ local function Div(el)
       if el.attributes["unilur-collapse"] == "false" then
         options_collapse = false
       end
-      
+
       -- Increment comment counter
       comment_counter = comment_counter + 1
-      
-      return {quarto.Callout({
-        content =  { el },
-        icon = false,
-        title = pandoc.Para{pandoc.Strong("Comments " .. comment_counter .. " ")}, -- -- Comment text in bold with number
-        collapse = options_collapse,
-        type = "warning" -- use warning callout type for Comment
+
+      if quarto.doc.isFormat("pdf") then
+        local latex_content = stringify_blocks(el.content)
+        local title = "Comment " .. comment_counter .. " "
+        return pandoc.RawBlock("latex", string.format("\\begin{callout-comment}[]{\\textbf{%s}}\n%s\n\\end{callout-comment}", title, latex_content))
+      else
+        return {quarto.Callout({
+          content =  { el },
+          icon = false,
+          title = pandoc.Para{pandoc.Strong("Comment " .. comment_counter .. " ")},
+          collapse = options_collapse,
+          type = "comment"
         })}
+      end
     else
       return {} -- remove the comment chunks for questions
     end
   end
 end
-
 
 -- Run in two passes so we process metadata
 -- and then process the divs
@@ -109,4 +149,3 @@ return {
   {Meta = read_meta},
   {Div = Div}
 }
-
