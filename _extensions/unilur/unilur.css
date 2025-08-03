@@ -1,19 +1,35 @@
-div.callout-solution.callout {
-  border-left-color: #12a629;
+/* Solution callout */
+/* ---------------- */
+div.callout-solution.callout { 
+  border-left-color: #12a629; /* Border color (HEX code) */
 }
 
 div.callout-solution.callout-style-default>.callout-header {
-  background-color: #ceffd0;
+  background-color: #ceffd0; /* Background color (HEX code) */
 }
 
-div.callout-comment.callout {
-  border-left-color: #B77093;
+div.callout-solution.icon .callout-icon {
+  display: unset; /* No icon for solution callout */
+}
+
+
+/* Comment callout */
+/* ---------------- */
+div.callout-comment.callout { 
+  border-left-color: #9E9E9E; /* Border color (HEX code) */
 }
 
 div.callout-comment.callout-style-default>.callout-header {
-  background-color: #E9D4DE;
+  background-color: #F5F5F5; /* Background color (HEX code) */
 }
 
+div.callout-comment.icon .callout-icon {
+  display: unset; /* No icon for comment callout */
+}
+
+
+/* Tip callout */
+/* ---------------- */
 div.callout-tip.callout {
   border-left-color: #ffec8b;
 }
@@ -22,13 +38,9 @@ div.callout-tip.callout-style-default>.callout-header {
   background-color: #fff9dc;
 }
 
-div.callout-solution.icon .callout-icon {
-  display: unset;
-}
 
-div.callout-comment.icon .callout-icon {
-  display: unset;
-}
+
+
 
 h5 { /* Header 5 so questions */
   font-size: 1.2em;
