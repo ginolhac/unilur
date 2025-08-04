@@ -77,7 +77,7 @@ You have three different ways to show the solution to an exercise.
 
 | :one: Code chunks | :two: Fenced div | :three: Code Blocks |
 |------------------------|---------------------|------------------------|
-| Add the new variable `unilur-solution` as [hashpipe`#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the code chunks that are part of practical answers. Otherwise, chunks are left untouched. | Fences divs can also be used, and they can contain code chunks too | Code Blocks are used for text |
+| Use `unilur-solution` as [hashpipe](https://quarto.org/docs/reference/cells/cells-knitr.html) to the code chunks. | Fences divs can also be used, and they can contain code chunks too | Code Blocks are used for text |
 | ![](img/option-1.png) | ![](img/option-2.png) | ![](img/option-3.png)
 
 
