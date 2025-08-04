@@ -30,12 +30,13 @@ div.callout-comment.icon .callout-icon {
 
 /* Tip callout */
 /* ---------------- */
+/* The colour was changed to yellow as 1) homage of the original {unilur} R package and 2) to differentiate to the solutions */
 div.callout-tip.callout {
-  border-left-color: #ffec8b;
+  border-left-color: #ffec8b; /* Border color (HEX code) */
 }
 
 div.callout-tip.callout-style-default>.callout-header {
-  background-color: #fff9dc;
+  background-color: #fff9dc; /* Background color (HEX code) */
 }
 
 
