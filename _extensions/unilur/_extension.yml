@@ -13,5 +13,5 @@ contributes:
     pdf: default
     pdf+solution:
       show-solution: true
-      keep-tex: true
+      keep-tex: false
       include-before-body: unilur.tex
