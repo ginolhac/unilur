@@ -1,6 +1,6 @@
 # unilur Extension for Quarto
 
-:warning: this extension requires Quarto **>= 1.4.538** (current release: **1.7.32**). (if I am correct, please confirm and then delete that comment)
+:warning: this extension requires Quarto **>= 1.4.538**
 
 ## What is `unilur`?
 
@@ -12,8 +12,9 @@ It is a [Quarto extension](https://github.com/quarto-ext), providing additional 
 It supports both HTML and PDF outputs and allows toggling the visibility of solutions (and comments) using a simple YAML switch. 
 
 
-> **NOTE:** This [Quarto extension](https://github.com/quarto-ext) is a conversion/adaptation of the [{unilur} R package](https://github.com/koncina/unilur) for [rmarkdown](https://rmarkdown.rstudio.com/), which was developed by [**Eric Koncina**](https://github.com/koncina). ~~The current package does more than the hiding/highlighting of **solution** code chunks for
-teaching practicals.~~
+> [!NOTE]
+> This [Quarto extension](https://github.com/quarto-ext) is a conversion/adaptation of the [{unilur} R package](https://github.com/koncina/unilur) for [rmarkdown](https://rmarkdown.rstudio.com/), 
+> which was developed by [**Eric Koncina**](https://github.com/koncina).
 
 
 
@@ -64,28 +65,36 @@ Then, you will get (you can click on each file to get an overview):
 
 
 
-> **NOTE:** You have to specify a different output file for HTML, otherwise the solutions will be saved into the exercises file (overwrite themselves). Of course, it is possible to change the file name of all of the output files if wished.
+> [!NOTE]
+> You have to specify a different output file for HTML, otherwise the solutions will be saved into the exercises file (overwrite themselves). 
+> Of course, it is possible to change the file name of all of the output files if wished.
 
 
 ### Exercises/instructions
 
-You can use the the default prefix [`#exr-`](https://quarto.org/docs/authoring/cross-references.html) for writing your exercises. The extension made a slight modification to it in order to allow numbering the exercises without headers. By using it, you will have Exercise 1, Exercise 2, .... and not Exercise 1.1, Exercise 1.2, ... (default behavior with a header mandatory.
+You can use the the default prefix [`#exr-`](https://quarto.org/docs/authoring/cross-references.html) for writing your exercises. 
+The extension made a slight modification to it in order to allow numbering the exercises without headers. 
+By using it, you will have **Exercise 1**, **Exercise 2**, .... and not **Exercise 1.1**, **Exercise 1.2**, ... (default behavior with a header mandatory).
 
 ### Solutions
 
 You have three different ways to show the solution to an exercise. 
 
-| :one: Code chunks | :two: Fenced div | :three: Code Blocks |
-|------------------------|---------------------|------------------------|
+| :one: Code chunks      | :two: Fenced div      | :three: Code Blocks    |
+|------------------------|-----------------------|------------------------|
 | Use `unilur-solution` as [hashpipe](https://quarto.org/docs/reference/cells/cells-knitr.html) to the code chunks. | Fences divs can also be used, and they can contain code chunks too | Code Blocks are used for text |
-| ![](img/option-1.png) | ![](img/option-2.png) | ![](img/option-3.png)
+| ![](img/option-1.png)  | ![](img/option-2.png) | ![](img/option-3.png)  |
 
 
 
 
 ### Comments
 
-The comments have the same three options as above for solutions. The only difference is to use `unilur-comment` instead of `unilur-solution`. The comments can be used for any additionnal information for the instructors, such as any general comments about a specific exercise or the points to be attributed for each answer (in the case of an exam for example). If you do not need it, you can skip it. If it is used, it will be shown in the same document as the solutions.
+The comments have the same three options as above for solutions. 
+The only difference is to use `unilur-comment` instead of `unilur-solution`. 
+The comments can be used for any additional information for the instructors, 
+such as any general comments about a specific exercise or the points to be attributed for each answer (in the case of an exam for example). 
+If you do not need it, you can skip it. If it is used, it will be shown in the same document as the solutions.
 
 
 
@@ -93,12 +102,14 @@ The comments have the same three options as above for solutions. The only differ
 
 > **NOTE:** in HTML, the solution and comment boxes are collapsed by default, but can be shown with the chunk option `unilur-collapse`.
 
-| Exercise only  | Exercise with solution and comment   |
-|---------------------------------------------|-------------------------------------------------|
-| ![](img/example-without-sol.png) | ![](img/example-with-sol.png) |
+| Exercise only                         | Exercise with solution and comment   |
+|---------------------------------------|--------------------------------------|
+| ![](img/example-without-sol.png)      | ![](img/example-with-sol.png)        |
 
 
-> **NOTE:** The solutions coloured box is green. Thus, to avoid confusion, but also to homage of the original [{unilur} R package](https://github.com/koncina/unilur), the tip callout was changed to the colour yellow.
+> [!NOTE] 
+> The solutions coloured box is green. 
+> Thus, to avoid confusion, but also to homage of the original [{unilur} R package](https://github.com/koncina/unilur), the tip callout was changed to the colour yellow.
 
 
 ## Acknowledgements
@@ -125,7 +136,6 @@ We welcome contributions! Please submit a pull request or open an issue.
 ### TODO
 
 - Add tests.
-- callout-tip in yellow for PDF output
 - Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
     + Idea from Christophe Dervieux: treat `div` attribute
     + Get `el` content and iterate with `walk()`

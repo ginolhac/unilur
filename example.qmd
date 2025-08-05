@@ -82,7 +82,7 @@ But tip ones are using a yellow color to better discriminate with the new soluti
 
 ::: {.callout-tip}
 ## Tip
-Are yellow instead of green-ish (in HTML)
+Are yellow instead of green-ish
 :::
 
 
