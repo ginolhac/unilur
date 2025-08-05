@@ -28,13 +28,13 @@ To use this extension in your Quarto project, run this in the top level of your 
 quarto add ginolhac/unilur
 ```
 
-This will install the extension under the `_extensions/` subdirectory. If you're using version control, you will want to check in this directory. You can find more information in the Quarto documentation for [managing
+This will install the extension under the `_extensions/` sub-directory. If you're using version control, you will want to check in this directory. You can find more information in the Quarto documentation for [managing
 extensions](https://quarto.org/docs/extensions/#managing-extensions).
 
 
 ## Usage
 
-:bulb: For a detailed explanation on how to use it, please see the vignette. (will add a complete step-by-step later if ok for you -> I will do it anyway for my colleagues)
+:bulb: For a detailed explanation on how to use it, please see the upcoming vignette.
 
 To use the extension, you just need to add the following lines to your YAML header (you can use only HTML or PDF outputs):
 
