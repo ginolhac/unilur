@@ -1,103 +1,116 @@
-unilur
-================
+# unilur Extension for Quarto
+
+:warning: this extension requires Quarto **>= 1.4.538**
+
+## What is `unilur`?
+
+It is a [Quarto extension](https://github.com/quarto-ext), providing additional formatting options for Quarto documents. It is designed to help educators create tutorials, practicals, and exams (coming soon :wink:) with [Quarto](https://quarto.org/). With `unilur`, you can render from one single `.qmd` file:
+
+- One file with only questions
+- One file with questions and answers (and if used also comments), where answers appear in a coloured box (and comments in a different coloured box) 
+
+It supports both HTML and PDF outputs and allows toggling the visibility of solutions (and comments) using a simple YAML switch. 
 
 
-## Aim
+> [!NOTE]
+> This [Quarto extension](https://github.com/quarto-ext) is a conversion/adaptation of the [{unilur} R package](https://github.com/koncina/unilur) for [rmarkdown](https://rmarkdown.rstudio.com/), 
+> which was developed by [**Eric Koncina**](https://github.com/koncina).
 
-Convert [{unilur}](https://github.com/koncina/unilur) developed by
-[**Eric Koncina**](https://github.com/koncina) to a
-[quarto-ext](https://github.com/quarto-ext). The current package does
-more than the hiding/highlighting of **solution** code chunks for
-teaching practicals.
+
 
 ## Installation
 
-**Important**: this extension requires Quarto **>= 1.4.538** (current release: **1.4.555**)
+**Prerequisites:** you need to have Quarto installed (see [here](https://quarto.org/docs/download/)). 
 
+To use this extension in your Quarto project, run this in the top level of your Quarto project:
 
 ``` bash
 quarto add ginolhac/unilur
 ```
 
-More details are available in Quarto docs for [managing
+This will install the extension under the `_extensions/` subdirectory. If you're using version control, you will want to check in this directory. You can find more information in the Quarto documentation for [managing
 extensions](https://quarto.org/docs/extensions/#managing-extensions).
+
 
 ## Usage
 
-- **Activate** the extension by adding the following lines to your YAML
-  header (you can use only HTML or PDF outputs):
+:bulb: For a detailed explanation on how to use it, please see the vignette. (will add a complete step-by-step later if ok for you -> I will do it anyway for my colleagues)
+
+To use the extension, you just need to add the following lines to your YAML header (you can use only HTML or PDF outputs):
 
 ``` yaml
 format:
   unilur-html: default
   unilur-html+solution:
-    # You have to specify a different output file otherwise they will 
-    # overwrite themselves
     output-file: example-solution.html
   unilur-pdf: default
-  unilur-pdf+solution:
-    output-file: example-solution.pdf
+  unilur-pdf+solution: default
 ```
 
-- **Solution** code blocks are either **highlighted** or ~~discarded~~
-  according to the `show-solution` Boolean and the YAML header:
-
-``` yaml
-show-solution: true # or false
-```
-
-### Code chunks
-
-- Add the new variable `unilur-solution` as [hashpipe,
-  `#|`](https://quarto.org/docs/reference/cells/cells-knitr.html) to the
-  code chunks that are part of practical answers. Otherwise, chunks are
-  left untouched.
-
-
-    #| unilur-solution: true
-
-Of note, if `show-solution` is absent, it is considered `false`.
-
-Solution blocks are collapsed by default but can be shown with the chunk option `unilur-collapse` (see example below).
-
-### Fenced div
-
-    ::: unilur-solution
-    
-    this is not shown in instructions
-    
-    :::
-    
-Fences divs can also be used, and they can contain code chunks too
-
-### Code Blocks
-
-The third possibility is to use `block` chunks with the appropriate chunk option
-
-    ```{block}
-    #| unilur-solution: true
-    this is not shown in instructions
-    
-    ```
-
-
-## Outputs
-
-From the Quarto doc [`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd) after running:
+The above code will give you four different files. Let's say that you have a Quarto file called [`example.qmd`](https://github.com/ginolhac/unilur/blob/main/example.qmd) after running:
 
 ``` bash
 quarto render example.qmd
 ```
 
-**Both HTML** files are rendered along with **both PDFs**
 
-| HTML `show-solution: true`   (rendered: [`example-solution.html`](https://ginolhac.github.io/unilur/example-solution.html))  | HTML `show-solution: false`  (rendered: [`example.html`](https://ginolhac.github.io/unilur/example.html))   |
-|---------------------------------------------|-------------------------------------------------|
-| ![HTML unilur-solution](img/unilur_solution.png) | ![HTML unilur-nosolution](img/unilur_nosolution.png) |
+Then, you will get (you can click on each file to get an overview):
 
-| PDF `show-solution: true`   (rendered: [`example-solution.pdf`](https://ginolhac.github.io/unilur/example-solution.pdf))  | PDF `show-solution: false`  (rendered: [`example.pdf`](https://ginolhac.github.io/unilur/example.pdf))   |
-|---------------------------------------------|-------------------------------------------------|
-| ![PDF  unilur-solution](img/pdf_unilur_solution.png) | ![PDF unilur-nosolution](img/pdf_unilur_nosolution.png) |
+- [`example.html`](https://ginolhac.github.io/unilur/example.html): file with only the exercises in HTML format (the name of that file is the name of your `.qmd` file)
+- [`example-solution.html`](https://ginolhac.github.io/unilur/example-solution.html): file with solutions (and comments if used) in HTML format (the name of that file was defined in the YAML section above)
+- [`example.pdf`](https://ginolhac.github.io/unilur/example.pdf): file with only the exercises in PDF format (the name of that file is the name of your `.qmd` file)
+- [`example+solution.pdf`](https://ginolhac.github.io/unilur/example-solution.pdf): file with solutions (and comments if used) in PDF format (the name of that file is the name of your `.qmd` file with `+solution` added automatically to it)
+
+
+
+
+
+> [!NOTE]
+> You have to specify a different output file for HTML, otherwise the solutions will be saved into the exercises file (overwrite themselves). 
+> Of course, it is possible to change the file name of all of the output files if wished.
+
+
+### Exercises/instructions
+
+You can use the the default prefix [`#exr-`](https://quarto.org/docs/authoring/cross-references.html) for writing your exercises. 
+The extension made a slight modification to it in order to allow numbering the exercises without headers. 
+By using it, you will have **Exercise 1**, **Exercise 2**, .... and not **Exercise 1.1**, **Exercise 1.2**, ... (default behavior with a header mandatory).
+
+### Solutions
+
+You have three different ways to show the solution to an exercise. 
+
+| :one: Code chunks      | :two: Fenced div      | :three: Code Blocks    |
+|------------------------|-----------------------|------------------------|
+| Use `unilur-solution` as [hashpipe](https://quarto.org/docs/reference/cells/cells-knitr.html) to the code chunks. | Fences divs can also be used, and they can contain code chunks too | Code Blocks are used for text |
+| ![](img/option-1.png)  | ![](img/option-2.png) | ![](img/option-3.png)  |
+
+
+
+
+### Comments
+
+The comments have the same three options as above for solutions. 
+The only difference is to use `unilur-comment` instead of `unilur-solution`. 
+The comments can be used for any additional information for the instructors, 
+such as any general comments about a specific exercise or the points to be attributed for each answer (in the case of an exam for example). 
+If you do not need it, you can skip it. If it is used, it will be shown in the same document as the solutions.
+
+
+
+### Overview
+
+> **NOTE:** in HTML, the solution and comment boxes are collapsed by default, but can be shown with the chunk option `unilur-collapse`.
+
+| Exercise only                         | Exercise with solution and comment   |
+|---------------------------------------|--------------------------------------|
+| ![](img/example-without-sol.png)      | ![](img/example-with-sol.png)        |
+
+
+> [!NOTE] 
+> The solutions coloured box is green. 
+> Thus, to avoid confusion, but also to homage of the original [{unilur} R package](https://github.com/koncina/unilur), the tip callout was changed to the colour yellow.
+
 
 ## Acknowledgements
 
@@ -116,10 +129,13 @@ Moreover:
   [awesome Quarto](https://github.com/mcanouil/awesome-quarto)
 
 
+## Contributing
+We welcome contributions! Please submit a pull request or open an issue.
+
+
 ### TODO
 
 - Add tests.
-- callout-tip in yellow for PDF output
 - Remove the `unilur-solution: true` option from chunks when displayed (visible in `echo: fenced`).
     + Idea from Christophe Dervieux: treat `div` attribute
     + Get `el` content and iterate with `walk()`

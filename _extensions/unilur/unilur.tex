@@ -1,3 +1,67 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define colors for callouts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\definecolor{quarto-callout-color}{HTML}{109524}
-\definecolor{quarto-callout-color-frame}{HTML}{B9E5BB}
+% This is using HEX code without the # at the beginning
+
+% Solution callout
+\definecolor{quarto-callout-color-solution}{HTML}{109524} % header color
+\definecolor{quarto-callout-color-solution-frame}{HTML}{A6CEA8} % border color
+
+% Comment callout
+\definecolor{quarto-callout-color-comment}{HTML}{F5F5F5} % header color
+\definecolor{quarto-callout-color-comment-frame}{HTML}{9E9E9E} % border color
+
+% Tip callout
+% The colour was changed to yellow as 1) homage of the original {unilur} R package and 2) to differentiate to the solutions
+\definecolor{quarto-callout-tip-color}{HTML}{FFF176} % header color
+\definecolor{quarto-callout-tip-color-frame}{HTML}{FFB300} % border color
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Define custom tcolorbox environments to mimic callouts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% For solution
+\newtcolorbox{callout-solution}[2][]{
+  enhanced,
+  arc=0.5mm, % define radius of the rounding -> increase for smoother curves
+  leftrule=2pt, % thicker left border
+  rightrule=0.5pt, % thinner right border
+  toprule=0.5pt, % thinner top border
+  bottomrule=0.5pt, % thinner botoom border
+  colback=white, % main content background in white
+  colframe=quarto-callout-color-solution-frame, % border color
+  coltitle=black, % make the text solution in black
+  colbacktitle=quarto-callout-color-solution!5, % background color for the title with transparency
+  attach boxed title to top, % need this line for the next one
+  boxed title style={bottomrule=0pt, % delete line between title and box
+  colframe=quarto-callout-color-solution-frame, % color the line around the title box the same as the frame
+  top=1.5mm, bottom=1.5mm}, % add more space before and after the title of the callout
+  left=1mm, % move text closer to the left (space between left edge and content)
+  title={#2},
+  #1
+}
+
+
+% For comments
+\newtcolorbox{callout-comment}[2][]{%
+  enhanced,
+  arc=0.5mm, % define radius of the rounding -> increase for smoother curves
+  leftrule=2pt, % thicker left border
+  rightrule=0.5pt, % thinner right border
+  toprule=0.5pt, % thinner top border
+  bottomrule=0.5pt, % thinner botoom border
+  colback=white, % main content background in white
+  colframe=quarto-callout-color-comment-frame, % border color
+  coltitle=black, % make the text comment in black
+  colbacktitle=quarto-callout-color-comment, % background color for the title
+  attach boxed title to top, % need this line for the next one
+  boxed title style={bottomrule=0pt, % delete line between title and box
+  colframe=quarto-callout-color-comment-frame, % color the line around the title box the same as the frame
+  top=1.5mm, bottom=1.5mm}, % add more space before and after the title of the callout
+  left=1mm, % move text closer to the left (space between left edge and content)
+  title={#2},
+  #1
+}
