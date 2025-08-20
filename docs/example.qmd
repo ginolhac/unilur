@@ -1,0 +1,123 @@
+---
+title: "[Unilur](https://github.com/ginolhac/unilur) Example"
+format: 
+  unilur-html: default
+  unilur-html+solution:
+    output-file: example-solution.html
+  unilur-pdf: default
+  unilur-pdf+solution:
+    output-file: example-solution.pdf
+embed-resources: true
+---
+
+## Usage once extension is installed
+
+- **Activate** the extension by adding the following lines to your YAML header:
+
+``` yaml
+format:
+  unilur-html: default
+  unilur-html+solution:
+    # You have to specify a different output file otherwise they will 
+    # overwrite themselves
+    output-file: example-solution.html 
+```
+
+When you call `quarto render`, two HTML files will be produced. The one named
+`example-solution.html` will have the solution blocks included.
+
+- **Solution** code blocks are **highlighted** or ~~discarded~~ according to the chunk option `unilur-solution` Boolean and the global option `show-solution` in the YAML header.
+
+Of note, if `show-solution` is absent, it is considered `false`.
+
+
+### Example with `unilur-solution: true`
+
+- Code chunk with `echo: fenced`
+
+```{r}
+#| unilur-solution: true
+#| echo: fenced
+
+1 + 1
+```
+
+- Code block _without_ solution, so stays in whatever happens
+
+```{r}
+#| echo: fenced
+
+1 + 1
+```
+
+- Solution with `unilur-collapse: false` 
+
+```{r}
+#| unilur-solution: true
+#| unilur-collapse: false
+
+1 + 2
+```
+
+
+Any machinery supported by Quarto can be used:
+
+- Python Code chunk with `unilur-solution: true`
+
+```{.python}
+#| unilur-solution: true
+for i in [3, 5, 6]:
+  print(i)
+```
+
+
+Caution callouts are classic:
+
+::: {.callout-caution}
+## Danger
+Red expected
+:::
+
+But tip ones are using a yellow color to better discriminate with the new solution blocks:
+
+::: {.callout-tip}
+## Tip
+Are yellow instead of green-ish
+:::
+
+
+- Solution with markdown text (`{block}`):
+
+````{block}
+#| unilur-solution: true
+#| unilur-collapse: false
+For text with **bold** or warning people about CO~2~ atmospheric concentration
+
+R code can be displayed but not executed.
+
+```{{r}}
+
+1 + 1
+```
+
+````
+
+You can also include `div` labels with `unilur-solution`. 
+Note the solution will only show up in the solution file (collapsed box).
+
+::: unilur-solution
+
+Here is a solution that is inside a div. The contents of this will only be shown
+in the solution document. Source code highlighting is preserved inside the `div` and executable.
+
+```{r}
+
+sample(CO2,  size = 5) |> 
+  head(5)
+
+```
+
+:::
+
+The advantage of working inside the div labels is that standard code formatting and
+highlighting will apply, and code can be executed alongside standard text.

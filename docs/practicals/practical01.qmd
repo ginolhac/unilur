@@ -1,0 +1,26 @@
+---
+title: "Practical chickens"
+subtitle: "one question only"
+author: "A Ginolhac"
+date: today
+format: unilur-html+solution
+embed-resources: true
+---
+
+
+Looking at this built-in dataset:
+
+```{r}
+head(chickwts)
+```
+
+##### How many observations have we?
+
+```{r}
+#| unilur-solution: true
+
+nrow(chickwts)
+```
+
+
+

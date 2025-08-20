@@ -1,0 +1,30 @@
+---
+title: "Practicals"
+listing:
+  - id: practicals-listing
+    contents: 
+      - practical*.qmd
+      - "!*_answer.qmd"
+    sort-ui: false
+    filter-ui: false
+    type: table
+    table-striped: true
+    table-hover: true
+    sort: "date"
+    date-format:  "dddd, D MMM. YYYY"
+    fields: [date, title, subtitle, image]
+  - id: practicals-templates
+    contents: practicals/templates.yml
+    template: templates-listing.ejs
+    date-format:  "dddd, D MMM. YYYY"
+---
+
+::: {#practicals-listing}
+
+:::
+
+### Practical Quarto templates pre-filled
+
+::: {#practicals-templates}
+
+:::
