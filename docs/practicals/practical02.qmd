@@ -4,6 +4,7 @@ subtitle: "short demo"
 author: "A Ginolhac"
 date: "2025-09-15"
 format: unilur-html+solution
+show-solution: false
 embed-resources: true
 ---
 
@@ -18,4 +19,11 @@ wine, beer
 :::
 
 
+##### Compute 2 + 4?
+
+```{r}
+#| unilur-solution: true
+
+2 + 4
+```
 

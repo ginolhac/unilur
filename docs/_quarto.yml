@@ -6,7 +6,7 @@ project:
     - "!*_answer.qmd"
 
 execute:
-  freeze: auto  # re-render only when source changes
+  freeze: auto # re-render only when source changes
 
 website:
   site-url: https://ginolhac.github.io/unilur
@@ -17,10 +17,12 @@ website:
     logo: https://quarto.org/quarto-dark-bg.jpeg
     background: light
     left:
-      - file: example.qmd
+      - file: index.qmd
         text: "Home"
+      - file: example.qmd
+        text: "Example"
       - file: practicals.qmd
-        text: "Practicals"
+        text: "Practicals demo"
   
   page-footer:
     center: |

@@ -13,9 +13,18 @@ convert_qmd_to_template <- function(path) {
   qmd_sans_chunks_no_header <- readLines(path, warn = FALSE) |>
     paste(collapse = "\n") |>
     stringr::str_remove("(?s)^---.*?---\\n*") |>
+    # Chunks
     stringr::str_replace_all(
-      "(?s)```\\{r\\s?[a-zA-Z_\\s\\-]*\\}\\n#\\| unilur-solution\\: true.*?```",
+      "(?s)```\\{[r|python]\\s?[a-zA-Z_\\s\\-]*\\}\\n#\\| unilur-solution\\: true.*?```",
       "```{r}\n# Write answer here\n```"
+    ) |>
+    # block chunks, just remove them
+    stringr::str_remove(
+      "(?s)```\\{block\\s?[a-zA-Z_\\s\\-]*\\}\\n#\\| unilur-solution\\: true.*?```"
+    ) |>
+    # same for div
+    stringr::str_remove(
+      "(?s):::\\s*unilur-solution\\n.*?:::"
     )
 
   writeLines(

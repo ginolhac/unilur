@@ -4,6 +4,7 @@ subtitle: "one question only"
 author: "A Ginolhac"
 date: today
 format: unilur-html+solution
+show-solution: false
 embed-resources: true
 ---
 
@@ -22,5 +23,11 @@ head(chickwts)
 nrow(chickwts)
 ```
 
+##### De we need to load a package for this dataset?
 
+```{block}
+#| unilur-solution: true
+
+No we don't, this is part of {datasets} loaded at started like {base} or {stats}
+```
 
