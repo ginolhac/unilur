@@ -9,13 +9,13 @@ embed-resources: true
 ---
 
 
-Yeast are _Saccharomyces cereviase_ in Latin.
+The latin name of baker's yeast is _Saccharomyces cerevisiae_.
 
-##### Give some yeast usage?
+##### Give some yeast usage!
 
 ::: unilur-solution
 
-wine, beer
+wine, beer, cake, pizza
 :::
 
 
