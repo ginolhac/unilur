@@ -1,0 +1,19 @@
+---
+title: "Practical yeast"
+date: 2025-09-15
+author: "Your name"
+format: html
+embed-resources: true
+---
+
+Yeast are _Saccharomyces cereviase_ in Latin.
+
+##### Give some yeast usage?
+
+::: unilur-solution
+
+wine, beer
+:::
+
+
+

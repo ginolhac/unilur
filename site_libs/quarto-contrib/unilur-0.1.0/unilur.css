@@ -1,0 +1,61 @@
+/* Solution callout */
+/* ---------------- */
+div.callout-solution.callout {
+  border-left-color: #12a629; /* Border color (HEX code) */
+}
+
+div.callout-solution.callout-style-default>.callout-header {
+  background-color: #ceffd0; /* Background color (HEX code) */
+}
+
+div.callout-solution.icon .callout-icon {
+  display: unset; /* No icon for solution callout */
+}
+
+
+/* Comment callout */
+/* ---------------- */
+div.callout-comment.callout {
+  border-left-color: #9E9E9E; /* Border color (HEX code) */
+}
+
+div.callout-comment.callout-style-default>.callout-header {
+  background-color: #F5F5F5; /* Background color (HEX code) */
+}
+
+div.callout-comment.icon .callout-icon {
+  display: unset; /* No icon for comment callout */
+}
+
+/* Tip callout */
+/* ---------------- */
+/* The colour was changed to yellow as 1) homage of the original {unilur} R package and 2) to differentiate to the solutions */
+div.callout-tip.callout {
+  border-left-color: #ffec8b; /* Border color (HEX code) */
+}
+
+div.callout-tip.callout-style-default>.callout-header {
+  background-color: #fff9dc; /* Background color (HEX code) */
+}
+
+h5 { /* Header 5 so questions */
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-top: 1.3em;
+  margin-bottom: 0.6em;
+  color: DarkBlue;
+}
+
+.bonus {
+  border: 2px solid rgb(188, 143, 143);
+  border-radius: 10px;
+  background-color: rgba(188, 143, 143, 0.01);
+  margin-left: -0.5em;
+  width: auto;
+  padding-left: 1.1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  padding-top: 0.5em;
+  padding-right: 1em;
+}
+

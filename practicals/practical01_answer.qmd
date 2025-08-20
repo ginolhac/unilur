@@ -1,0 +1,22 @@
+---
+title: "Practical chickens"
+date: today
+author: "Your name"
+format: html
+embed-resources: true
+---
+
+Looking at this built-in dataset:
+
+```{r}
+head(chickwts)
+```
+
+##### How many observations have we?
+
+```{r}
+# Write answer here
+```
+
+
+

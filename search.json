@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "practicals/practical02.html",
+    "href": "practicals/practical02.html",
+    "title": "Practical yeast",
+    "section": "",
+    "text": "Yeast are Saccharomyces cereviase in Latin.\n\nGive some yeast usage?\n\n\n\n\n\n\nSolution 1 \n\n\n\n\n\n\nwine, beer"
+  },
+  {
+    "objectID": "practicals.html",
+    "href": "practicals.html",
+    "title": "Practicals",
+    "section": "",
+    "text": "Date\n\n\n\nTitle\n\n\n\nSubtitle\n\n\n\n \n\n\n\n\n\n\n\n\nWednesday, 20 Aug. 2025\n\n\nPractical chickens\n\n\none question only\n\n\n\n\n\n\n\n\n\nMonday, 15 Sep. 2025\n\n\nPractical yeast\n\n\nshort demo\n\n\n\n\n\n\n\n\n\nNo matching items\n\n\nPractical Quarto templates pre-filled\n\n\n\n\nDate\nTitle\nFile (.qmd)\n\n\n\n\nThursday, 1 Jan. 1970\nPractical chickens\npractical01_answer.qmd\n\n\nMonday, 15 Sep. 2025\nPractical yeast\npractical02_answer.qmd\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "example-solution.html",
+    "href": "example-solution.html",
+    "title": "Unilur Example",
+    "section": "",
+    "text": "Activate the extension by adding the following lines to your YAML header:\n\nformat:\n  unilur-html: default\n  unilur-html+solution:\n    # You have to specify a different output file otherwise they will \n    # overwrite themselves\n    output-file: example-solution.html \nWhen you call quarto render, two HTML files will be produced. The one named example-solution.html will have the solution blocks included.\n\nSolution code blocks are highlighted or discarded according to the chunk option unilur-solution Boolean and the global option show-solution in the YAML header.\n\nOf note, if show-solution is absent, it is considered false.\n\n\n\nCode chunk with echo: fenced\n\n\n\n\n\n\n\nSolution 1 \n\n\n\n\n\n\n```{r}\n#| unilur-solution: true\n\n1 + 1\n```\n\n[1] 2\n\n\n\n\n\n\nCode block without solution, so stays in whatever happens\n\n\n```{r}\n1 + 1\n```\n\n[1] 2\n\n\n\nSolution with unilur-collapse: false\n\n\n\n\n\n\n\nSolution 2 \n\n\n\n\n\n\n1 + 2\n\n[1] 3\n\n\n\n\n\nAny machinery supported by Quarto can be used:\n\nPython Code chunk with unilur-solution: true\n\n#| unilur-solution: true\nfor i in [3, 5, 6]:\n  print(i)\nCaution callouts are classic:\n\n\n\n\n\n\nDanger\n\n\n\nRed expected\n\n\nBut tip ones are using a yellow color to better discriminate with the new solution blocks:\n\n\n\n\n\n\nTip\n\n\n\nAre yellow instead of green-ish\n\n\n\nSolution with markdown text ({block}):\n\n\n\n\n\n\n\nSolution 3 \n\n\n\n\n\n\nFor text with bold or warning people about CO2 atmospheric concentration\nR code can be displayed but not executed.\n```{r}\n\n1 + 1\n```\n\n\n\n\nYou can also include div labels with unilur-solution. Note the solution will only show up in the solution file (collapsed box).\n\n\n\n\n\n\nSolution 4 \n\n\n\n\n\n\nHere is a solution that is inside a div. The contents of this will only be shown in the solution document. Source code highlighting is preserved inside the div and executable.\n\nsample(CO2,  size = 5) |&gt; \n  head(5)\n\n  conc uptake Plant   Type  Treatment\n1   95   16.0   Qn1 Quebec nonchilled\n2  175   30.4   Qn1 Quebec nonchilled\n3  250   34.8   Qn1 Quebec nonchilled\n4  350   37.2   Qn1 Quebec nonchilled\n5  500   35.3   Qn1 Quebec nonchilled\n\n\n\n\n\n\nThe advantage of working inside the div labels is that standard code formatting and highlighting will apply, and code can be executed alongside standard text."
+  },
+  {
+    "objectID": "example-solution.html#usage-once-extension-is-installed",
+    "href": "example-solution.html#usage-once-extension-is-installed",
+    "title": "Unilur Example",
+    "section": "",
+    "text": "Activate the extension by adding the following lines to your YAML header:\n\nformat:\n  unilur-html: default\n  unilur-html+solution:\n    # You have to specify a different output file otherwise they will \n    # overwrite themselves\n    output-file: example-solution.html \nWhen you call quarto render, two HTML files will be produced. The one named example-solution.html will have the solution blocks included.\n\nSolution code blocks are highlighted or discarded according to the chunk option unilur-solution Boolean and the global option show-solution in the YAML header.\n\nOf note, if show-solution is absent, it is considered false.\n\n\n\nCode chunk with echo: fenced\n\n\n\n\n\n\n\nSolution 1 \n\n\n\n\n\n\n```{r}\n#| unilur-solution: true\n\n1 + 1\n```\n\n[1] 2\n\n\n\n\n\n\nCode block without solution, so stays in whatever happens\n\n\n```{r}\n1 + 1\n```\n\n[1] 2\n\n\n\nSolution with unilur-collapse: false\n\n\n\n\n\n\n\nSolution 2 \n\n\n\n\n\n\n1 + 2\n\n[1] 3\n\n\n\n\n\nAny machinery supported by Quarto can be used:\n\nPython Code chunk with unilur-solution: true\n\n#| unilur-solution: true\nfor i in [3, 5, 6]:\n  print(i)\nCaution callouts are classic:\n\n\n\n\n\n\nDanger\n\n\n\nRed expected\n\n\nBut tip ones are using a yellow color to better discriminate with the new solution blocks:\n\n\n\n\n\n\nTip\n\n\n\nAre yellow instead of green-ish\n\n\n\nSolution with markdown text ({block}):\n\n\n\n\n\n\n\nSolution 3 \n\n\n\n\n\n\nFor text with bold or warning people about CO2 atmospheric concentration\nR code can be displayed but not executed.\n```{r}\n\n1 + 1\n```\n\n\n\n\nYou can also include div labels with unilur-solution. Note the solution will only show up in the solution file (collapsed box).\n\n\n\n\n\n\nSolution 4 \n\n\n\n\n\n\nHere is a solution that is inside a div. The contents of this will only be shown in the solution document. Source code highlighting is preserved inside the div and executable.\n\nsample(CO2,  size = 5) |&gt; \n  head(5)\n\n  conc uptake Plant   Type  Treatment\n1   95   16.0   Qn1 Quebec nonchilled\n2  175   30.4   Qn1 Quebec nonchilled\n3  250   34.8   Qn1 Quebec nonchilled\n4  350   37.2   Qn1 Quebec nonchilled\n5  500   35.3   Qn1 Quebec nonchilled\n\n\n\n\n\n\nThe advantage of working inside the div labels is that standard code formatting and highlighting will apply, and code can be executed alongside standard text."
+  },
+  {
+    "objectID": "example.html",
+    "href": "example.html",
+    "title": "Unilur Example",
+    "section": "",
+    "text": "Activate the extension by adding the following lines to your YAML header:\n\nformat:\n  unilur-html: default\n  unilur-html+solution:\n    # You have to specify a different output file otherwise they will \n    # overwrite themselves\n    output-file: example-solution.html \nWhen you call quarto render, two HTML files will be produced. The one named example-solution.html will have the solution blocks included.\n\nSolution code blocks are highlighted or discarded according to the chunk option unilur-solution Boolean and the global option show-solution in the YAML header.\n\nOf note, if show-solution is absent, it is considered false.\n\n\n\nCode chunk with echo: fenced\n\n\nCode block without solution, so stays in whatever happens\n\n\n```{r}\n1 + 1\n```\n\n[1] 2\n\n\n\nSolution with unilur-collapse: false\n\nAny machinery supported by Quarto can be used:\n\nPython Code chunk with unilur-solution: true\n\n#| unilur-solution: true\nfor i in [3, 5, 6]:\n  print(i)\nCaution callouts are classic:\n\n\n\n\n\n\nDanger\n\n\n\nRed expected\n\n\nBut tip ones are using a yellow color to better discriminate with the new solution blocks:\n\n\n\n\n\n\nTip\n\n\n\nAre yellow instead of green-ish\n\n\n\nSolution with markdown text ({block}):\n\nYou can also include div labels with unilur-solution. Note the solution will only show up in the solution file (collapsed box).\nThe advantage of working inside the div labels is that standard code formatting and highlighting will apply, and code can be executed alongside standard text."
+  },
+  {
+    "objectID": "example.html#usage-once-extension-is-installed",
+    "href": "example.html#usage-once-extension-is-installed",
+    "title": "Unilur Example",
+    "section": "",
+    "text": "Activate the extension by adding the following lines to your YAML header:\n\nformat:\n  unilur-html: default\n  unilur-html+solution:\n    # You have to specify a different output file otherwise they will \n    # overwrite themselves\n    output-file: example-solution.html \nWhen you call quarto render, two HTML files will be produced. The one named example-solution.html will have the solution blocks included.\n\nSolution code blocks are highlighted or discarded according to the chunk option unilur-solution Boolean and the global option show-solution in the YAML header.\n\nOf note, if show-solution is absent, it is considered false.\n\n\n\nCode chunk with echo: fenced\n\n\nCode block without solution, so stays in whatever happens\n\n\n```{r}\n1 + 1\n```\n\n[1] 2\n\n\n\nSolution with unilur-collapse: false\n\nAny machinery supported by Quarto can be used:\n\nPython Code chunk with unilur-solution: true\n\n#| unilur-solution: true\nfor i in [3, 5, 6]:\n  print(i)\nCaution callouts are classic:\n\n\n\n\n\n\nDanger\n\n\n\nRed expected\n\n\nBut tip ones are using a yellow color to better discriminate with the new solution blocks:\n\n\n\n\n\n\nTip\n\n\n\nAre yellow instead of green-ish\n\n\n\nSolution with markdown text ({block}):\n\nYou can also include div labels with unilur-solution. Note the solution will only show up in the solution file (collapsed box).\nThe advantage of working inside the div labels is that standard code formatting and highlighting will apply, and code can be executed alongside standard text."
+  },
+  {
+    "objectID": "practicals/practical01.html",
+    "href": "practicals/practical01.html",
+    "title": "Practical chickens",
+    "section": "",
+    "text": "Looking at this built-in dataset:\n\nhead(chickwts)\n\n  weight      feed\n1    179 horsebean\n2    160 horsebean\n3    136 horsebean\n4    227 horsebean\n5    217 horsebean\n6    168 horsebean\n\n\n\nHow many observations have we?\n\n\n\n\n\n\nSolution 1 \n\n\n\n\n\n\nnrow(chickwts)\n\n[1] 71"
+  }
+]
