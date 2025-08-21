@@ -6,6 +6,10 @@ format: html
 embed-resources: true
 ---
 
+::: {.callout-note}
+This practical has `show-solution: true`, solution are displayed.
+:::
+
 The latin name of baker's yeast is _Saccharomyces cerevisiae_.
 
 ##### Give some yeast usage!

@@ -182,7 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>This <strong>Quarto</strong> website is demo of how we can use <strong>unilur</strong> for teaching.</p>
 <p>One real example is this <a href="https://basv53.uni.lu">bachelor R intro module</a> for Life Sciences students.</p>
-<p>For students, we want to have slides (<code>revealjs</code>) and practicals. In the later, the Quarto documents are using <strong>unilur</strong> for writing solutions along questions. Solutions are within green boxes that we hide for instructions and reveal when practicals are done. This is acheived by toggle the header variable to <code>true</code> from: <code>show-solution: false</code></p>
+<p>For students, we want to have slides (<code>revealjs</code>) and practicals. In the later, the Quarto documents are using <strong>unilur</strong> for writing solutions along questions. Solutions are within green boxes that we hide for instructions and reveal when practicals are done. This is acheived by toggling the header variable to <code>true</code> from: <code>show-solution: false</code></p>
 <section id="pre-filled-template-quarto-files" class="level3">
 <h3 class="anchored" data-anchor-id="pre-filled-template-quarto-files">Pre-filled template quarto files</h3>
 <p>The add-on here is generating <strong>Quarto templates</strong> that students can download and start filling up. They are <code>.qmd</code> files identical to instructions but where solution chunks are replaced by:</p>
@@ -191,13 +191,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This is not done by <strong>unilur</strong> at all, but this some custom setup from regular <a href="https://quarto.org/docs/websites/">Quarto Websites</a></p>
 <p>This is stated as <code>type</code> in the main config file <code>_quarto.yml</code>:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pre-render</span><span class="kw">:</span><span class="at"> create-template-yml.R</span><span class="co"> # key hook before quarto render</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">render</span><span class="kw">:</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.qmd"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"!*_answer.qmd"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Then the key part is calling a R script <code>create-template-yml.R</code> that will:</p>
+<div class="sourceCode" id="annotated-cell-2"><pre class="sourceCode yaml code-annotation-code code-with-copy code-annotated"><code class="sourceCode yaml"><span id="annotated-cell-2-1"><a href="#annotated-cell-2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="annotated-cell-2-2"><a href="#annotated-cell-2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> website</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-2-3" class="code-annotation-target"><a href="#annotated-cell-2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pre-render</span><span class="kw">:</span><span class="at"> create-template-yml.R</span><span class="co"> # key hook before quarto render</span></span>
+<span id="annotated-cell-2-4"><a href="#annotated-cell-2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">render</span><span class="kw">:</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-2" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-2-5" class="code-annotation-target"><a href="#annotated-cell-2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"*.qmd"</span></span>
+<span id="annotated-cell-2-6"><a href="#annotated-cell-2-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="st">"!*_answer.qmd"</span></span>
+<span id="annotated-cell-2-7"><a href="#annotated-cell-2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">[</span><span class="at">...</span><span class="kw">]</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="3" data-code-annotation="1">the key part is calling a R script <code>create-template-yml.R</code>.</span>
+</dd>
+<dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-2" data-code-lines="5,6" data-code-annotation="2">Render all Quarto docs but not the template where <code>.qmd</code> suffix is replaced by <code>_answer.qmd</code>.</span>
+</dd>
+</dl>
+<p>In more details, <code>create-template-yml.R</code> will:</p>
 <ul>
 <li>Generate the quarto templates.</li>
 <li>Generate a yaml file from those templates.</li>
@@ -205,20 +216,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Then the custom listing is shaped by the <code>templates-listing.ejs</code> where we specify the table look and appearance.</p>
 <p>It is called in the listing page <code>practicals.qmd</code> that first list the practicals (classic listing) then the templates (custom).</p>
 <p>Usually, we have projects along practicals, you can add them in line 3:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>target_folder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"practicals"</span>, <span class="st">"projects"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>target_folder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"practicals"</span>, <span class="st">"projects"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="template-headers" class="level3">
 <h3 class="anchored" data-anchor-id="template-headers">Template headers</h3>
 <p>Right now, the quarto headers for templates will be formatted as follows:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Practical chickens"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your name"</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Practical chickens"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> today</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Your name"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>embed-resources: true</code> because otherwise as a teacher you receive sad HTML without any libs.</p>
-<p>The date is reported from original practical, kept as <code>today</code> if set but then the displayed date is 1st January 1970 in <code>practicals.html</code>. We advise setting a meaningful date in ISO8610 format <code>YYYY-MM-DD</code>. If date is missing, current day is set.</p>
+<p>The date is reported from original practical, kept as <code>today</code> if set but then the displayed date is 1<sup>st</sup> January 1970 as seen in <a href="practicals.html"><code>practicals.html</code></a>. We advise setting a meaningful date in ISO8610 format <code>YYYY-MM-DD</code>. If date is missing, the current day is set.</p>
 <p>Of note, practicals with a <code>draft: true</code> variable are ignored.</p>
 </section>
 <section id="acknowledgements" class="level2">

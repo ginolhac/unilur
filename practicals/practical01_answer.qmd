@@ -6,7 +6,11 @@ format: html
 embed-resources: true
 ---
 
-Looking at this built-in dataset:
+::: {.callout-warning}
+This practical has `show-solution: false`, solution are **hidden**.
+:::
+
+Looking at this built-in dataset (regular chunk are visible):
 
 ```{r}
 head(chickwts)
