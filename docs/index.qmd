@@ -3,7 +3,6 @@ title: Demo website
 code-line-numbers: false
 ---
 
-
 This **Quarto** website is demo of how we can use **unilur** for teaching.
 
 One real example is this [bachelor R intro module](https://basv53.uni.lu) for Life Sciences students.
@@ -11,7 +10,7 @@ One real example is this [bachelor R intro module](https://basv53.uni.lu) for Li
 For students, we want to have slides (`revealjs`) and practicals.
 In the later, the Quarto documents are using **unilur** for writing solutions along questions. 
 Solutions are within green boxes that we hide for instructions and reveal when practicals are done.
-This is acheived by toggle the header variable to `true` from: `show-solution: false`
+This is acheived by toggling the header variable to `true` from: `show-solution: false`
 
 ### Pre-filled template quarto files
 
@@ -31,13 +30,17 @@ This is stated as `type` in the main config file `_quarto.yml`:
 ``` yaml
 project:
   type: website
-  pre-render: create-template-yml.R # key hook before quarto render
+  pre-render: create-template-yml.R # key hook before quarto render # <1>
   render:
-    - "*.qmd"
-    - "!*_answer.qmd"
+    - "*.qmd"                                                       # <2>
+    - "!*_answer.qmd"                                               # <2>
+[...]
 ```
 
-Then the key part is calling a R script `create-template-yml.R` that will:
+1. the key part is calling a R script `create-template-yml.R`.
+2. Render all Quarto docs but not the template where `.qmd` suffix is replaced by `_answer.qmd`.
+
+In more details, `create-template-yml.R` will:
 
 - Generate the quarto templates.
 - Generate a yaml file from those templates.
@@ -51,6 +54,8 @@ Usually, we have projects along practicals, you can add them in line 3:
 ``` r
 target_folder <- c("practicals", "projects")
 ```
+
+
 
 ### Template headers
 
@@ -68,13 +73,14 @@ embed-resources: true
 
 `embed-resources: true` because otherwise as a teacher you receive sad HTML without any libs.
 
-The date is reported from original practical, kept as `today` if set but then the displayed date is 1st January 1970 in `practicals.html`. We advise setting a meaningful date in ISO8610 format `YYYY-MM-DD`.
-If date is missing, current day is set.
+The date is reported from original practical, kept as `today` 
+if set but then the displayed date is 1^st^ January 1970 as seen in [`practicals.html`](practicals.html). 
+We advise setting a meaningful date in ISO8610 format `YYYY-MM-DD`.
+If date is missing, the current day is set.
 
 Of note, practicals with a `draft: true` variable are ignored.
 
 
 ## Acknowledgements
-
 
 - **Andrew Heiss** with this great example from his [dataviz website](https://github.com/andrewheiss/datavizsp25.classes.andrewheiss.com/blob/main/data/extract-news-headings.R)
