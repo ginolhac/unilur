@@ -45,7 +45,7 @@ The next solution collapsed despite the global option because of its specific op
  rnorm(n = 5)
 ```
 
-Next block is only collapsed individually
+Next block is also collapsed individually
 
 ##### Results are always changing, how to get identical random numbers?
 
