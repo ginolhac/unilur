@@ -1,5 +1,8 @@
 # Development version
 
+- Add a R script for generating Quarto templates from unilur docs
+- Add a demo website to demonstrate practicals with custom listing of templates
+
 # v0.2.0 2025-07-23
 
 - New callout for "Comments" that appears together with solutions if used (@SarahMuse #8)

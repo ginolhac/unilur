@@ -1,0 +1,13 @@
+/* css styles */
+
+/* logo too small by default */
+.navbar-logo {
+  max-height: 75px;
+  padding-left: 40px;
+}
+
+pre code:not(.sourceCode) {
+  background-color: #f1f3f5;
+  border-radius: 4px;
+}
+

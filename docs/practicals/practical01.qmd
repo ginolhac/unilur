@@ -1,0 +1,37 @@
+---
+title: "Practical chickens"
+subtitle: "one question only"
+author: "A Ginolhac"
+date: today
+format: unilur-html+solution
+show-solution: false
+embed-resources: true
+---
+
+
+::: {.callout-warning}
+This practical has `show-solution: false`, solution are **hidden**.
+:::
+
+Looking at this built-in dataset (regular chunk are visible):
+
+```{r}
+head(chickwts)
+```
+
+##### How many observations have we?
+
+```{r}
+#| unilur-solution: true
+
+nrow(chickwts)
+```
+
+##### De we need to load a package for this dataset?
+
+```{block}
+#| unilur-solution: true
+
+No we don't, this is part of {datasets} loaded at started like {base} or {stats}
+```
+
