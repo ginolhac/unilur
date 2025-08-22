@@ -1,0 +1,57 @@
+---
+title: "Practical collapse"
+subtitle: "global option"
+author: "A Ginolhac"
+date: "2025-09-22"
+format: unilur-html
+show-solution: true
+collapse-solution: false
+embed-resources: true
+---
+
+::: {.callout-note}
+This practical has:
+
+- `show-solution: true`, solution are displayed.
+- `collapse-solution: false`, solution are **not** collapsed (collapsed is the usual default mode)
+:::
+
+
+##### Generate 5 numbers from the uniform distribution between 0 and 1
+
+```{r}
+#| unilur-solution: true
+
+runif(n = 5)
+```
+
+The next solution collapsed despite the global option because of its specific option: `#| unilur-collapse: true`
+
+##### Generate 5 numbers from the uniform distribution between 5 and 10
+
+```{r}
+#| unilur-solution: true
+#| unilur-collapse: true
+
+ runif(n = 5, min = 5, max = 10)
+```
+
+
+##### Generate 5 numbers from the strandard distribution
+
+```{r}
+#| unilur-solution: true
+
+ rnorm(n = 5)
+```
+
+Next block is also collapsed individually
+
+##### Results are always changing, how to get identical random numbers?
+
+```{block}
+#| unilur-solution: true
+#| unilur-collapse: true
+
+Use the `set.seed(xx)` where `xx` is a fixed number.
+```
