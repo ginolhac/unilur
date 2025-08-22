@@ -21,11 +21,13 @@ The latin name of baker's yeast is _Saccharomyces cerevisiae_.
 wine, beer, cake, pizza
 :::
 
+This solution is unfolded thanks to its option: `#| unilur-collapse: false`
 
 ##### Compute 2 + 4?
 
 ```{r}
 #| unilur-solution: true
+#| unilur-collapse: false
 
 2 + 4
 ```

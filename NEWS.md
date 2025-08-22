@@ -1,7 +1,15 @@
 # Development version
 
-- Add a R script for generating Quarto templates from unilur docs
-- Add a demo website to demonstrate practicals with custom listing of templates
+# v0.2.2 2025-08-22
+
+- Global option for collapsing solution boxes (@rolandkrause #6)
+
+
+# v0.2.1 2025-08-22
+
+- Add a R script for generating Quarto templates from unilur docs (@rolandkrause  #11)
+- Add a demo website to demonstrate practicals with custom listing of templates (#11)
+
 
 # v0.2.0 2025-07-23
 

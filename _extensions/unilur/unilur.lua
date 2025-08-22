@@ -5,6 +5,7 @@
 -- With precious help from Christophe Dervieux
 
 local options_solution = nil
+local options_collapse = true -- collapsed by default
 local exr_counter = 0 -- add a counter
 local sol_counter = 0 -- add a counter
 local comment_counter = 0 -- add a counter
@@ -15,6 +16,10 @@ local function read_meta(meta)
   local options = meta["show-solution"]
   if options ~= nil then
     options_solution = options
+  end
+    local collapse = meta["collapse-solution"]
+  if collapse ~= nil then
+    options_collapse = collapse
   end
 end
 
@@ -49,7 +54,7 @@ local function stringify_blocks(blocks)
 end
 
 local function Div(el)
-  local options_collapse = true
+  local collapse = true
   -- Modify the numbering of the exercises
   -- Default for exr is 1.1, 1.2 with a heading mandatory
   if el.identifier:match("^exr%-") or el.classes:includes("exr") then
@@ -76,11 +81,16 @@ local function Div(el)
         stylesheets = {"unilur.css"}
       })
     end
+
     -- Embed solution code/block inside a callout if global option is true
     if options_solution then
-      -- collapse callout by default except specified
-      if el.attributes["unilur-collapse"] == "false" then
-        options_collapse = false
+      -- collapse solution by default except specified
+      -- local collapse has precedence over global option
+      if not options_collapse or el.attributes["unilur-collapse"] == "false" then
+        collapse = false
+      end
+      if el.attributes["unilur-collapse"] == "true" then
+        collapse = true
       end
 
       -- Increment solution counter
@@ -95,7 +105,7 @@ local function Div(el)
           content =  { el },
           icon = false,
           title = pandoc.Para{pandoc.Strong("Solution " .. sol_counter .. " ")}, -- Solution text in bold with number
-          collapse = options_collapse,
+          collapse = collapse,
           type = "solution"
         })}
       end
@@ -110,7 +120,7 @@ local function Div(el)
     if quarto.doc.hasBootstrap() or quarto.doc.isFormat("revealjs") then
       quarto.doc.addHtmlDependency({
         name = "unilur",
-        version = "0.1.0",
+        version = "0.2.2",
         stylesheets = {"unilur.css"}
       })
     end
@@ -149,3 +159,4 @@ return {
   {Meta = read_meta},
   {Div = Div}
 }
+

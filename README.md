@@ -70,6 +70,20 @@ Then, you will get (you can click on each file to get an overview):
 > Of course, it is possible to change the file name of all of the output files if wished.
 
 
+### Global options
+
+Two boolean options for all chunks are recognized in the YAML Quarto header:
+
+- `show-solution`:
+    + `true` generates solution boxes (_ie_ like format `unilur-html+solution`). 
+    + `false` generates instructions without solutions.
+- `collapse-solution`:
+    + `true` (the default) for HTML output, all solution boxes are collapsed, students need to click on them to unfolded.
+    + `false`, all solutions are unfolded.
+
+> [!TIP]
+> You have to specify per chunk the option `unilur-collapse` which override the behavior of the global option `collapse-solution`. 
+
 ### Exercises/instructions
 
 You can use the the default prefix [`#exr-`](https://quarto.org/docs/authoring/cross-references.html) for writing your exercises. 
@@ -101,7 +115,6 @@ If you do not need it, you can skip it. If it is used, it will be shown in the s
 
 > [!NOTE]
 > In HTML, the solution and comment boxes are collapsed by default, but can be shown with the chunk option `unilur-collapse`.
-> Soon, a global option will be released
 
 | Exercise only                         | Exercise with solution and comment   |
 |---------------------------------------|--------------------------------------|
@@ -146,6 +159,7 @@ Moreover:
 
 
 ## Contributing
+
 We welcome contributions! Please submit a pull request or open an issue.
 
 

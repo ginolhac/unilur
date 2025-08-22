@@ -14,6 +14,23 @@ In the later, the Quarto documents are using **unilur** for writing solutions al
 Solutions are within green boxes that we hide for instructions and reveal when practicals are done.
 This is acheived by toggling the header variable to `true` from: `show-solution: false`
 
+### Global options
+
+
+- `show-solution`:
+    + `true` generates solution boxes (_ie_ like format `unilur-html+solution`). 
+    + `false` generates instructions without solutions.
+- `collapse-solution`:
+    + `true` (the default) for HTML output, all solution boxes are collapsed, students need to click on them to unfolded.
+    + `false`, all solutions are unfolded.
+
+::: {.callout-tip}
+
+You can specify _per_ chunk the option `unilur-collapse` which override the behavior of the global option `collapse-solution`. 
+
+See the examples in practical03
+:::
+
 ### Pre-filled template quarto files
 
 The add-on here is generating **Quarto templates** that students can download and start filling up.
