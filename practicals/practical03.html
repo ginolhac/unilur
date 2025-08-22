@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="A Ginolhac">
-<meta name="dcterms.date" content="2025-09-15">
+<meta name="dcterms.date" content="2025-09-22">
 
-<title>Practical yeast</title>
+<title>Practical collapse</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3935,8 +3935,8 @@ padding-right: 1em;
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practical yeast</h1>
-<p class="subtitle lead">short demo</p>
+<h1 class="title">Practical collapse</h1>
+<p class="subtitle lead">global option</p>
 </div>
 
 
@@ -3953,7 +3953,7 @@ padding-right: 1em;
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2025</p>
+      <p class="date">September 22, 2025</p>
     </div>
   </div>
   
@@ -3975,14 +3975,17 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This practical has <code>show-solution: true</code>, solution are displayed.</p>
+<p>This practical has:</p>
+<ul>
+<li><code>show-solution: true</code>, solution are displayed.</li>
+<li><code>collapse-solution: false</code>, solution are <strong>not</strong> collapsed (collapsed is the usual default mode)</li>
+</ul>
 </div>
 </div>
-<p>The latin name of baker’s yeast is <em>Saccharomyces cerevisiae</em>.</p>
-<section id="give-some-yeast-usage" class="level5">
-<h5 class="anchored" data-anchor-id="give-some-yeast-usage">Give some yeast usage!</h5>
+<section id="generate-5-numbers-from-the-uniform-distribution-between-0-and-1" class="level5">
+<h5 class="anchored" data-anchor-id="generate-5-numbers-from-the-uniform-distribution-between-0-and-1">Generate 5 numbers from the uniform distribution between 0 and 1</h5>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -3991,20 +3994,23 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-<div class="unilur-solution">
-<p>wine, beer, cake, pizza</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.88352267 0.43525798 0.72679060 0.09725421 0.91038781</code></pre>
 </div>
 </div>
 </div>
 </div>
-<p>This solution is unfolded thanks to its option: <code>#| unilur-collapse: false</code></p>
+</div>
+<p>The next solution collapsed despite the global option because of its specific option: <code>#| unilur-collapse: true</code></p>
 </section>
-<section id="compute-2-4" class="level5">
-<h5 class="anchored" data-anchor-id="compute-2-4">Compute 2 + 4?</h5>
+<section id="generate-5-numbers-from-the-uniform-distribution-between-5-and-10" class="level5">
+<h5 class="anchored" data-anchor-id="generate-5-numbers-from-the-uniform-distribution-between-5-and-10">Generate 5 numbers from the uniform distribution between 5 and 10</h5>
 <div class="callout callout-style-default callout-solution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -4013,13 +4019,59 @@ Note
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="cell" data-unilur-collapse="false">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-unilur-collapse="true">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">min =</span> <span class="dv">5</span>, <span class="at">max =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 7.786155 5.400901 7.085202 8.771483 6.479340</code></pre>
 </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-5-numbers-from-the-strandard-distribution" class="level5">
+<h5 class="anchored" data-anchor-id="generate-5-numbers-from-the-strandard-distribution">Generate 5 numbers from the strandard distribution</h5>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Solution 3 </strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.8001120  0.1693407  0.4128206  0.0936146 -0.5311809</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Next block is only collapsed individually</p>
+</section>
+<section id="results-are-always-changing-how-to-get-identical-random-numbers" class="level5">
+<h5 class="anchored" data-anchor-id="results-are-always-changing-how-to-get-identical-random-numbers">Results are always changing, how to get identical random numbers?</h5>
+<div class="callout callout-style-default callout-solution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>Solution 4 </strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-unilur-collapse="true">
+<p>Use the <code>set.seed(xx)</code> where <code>xx</code> is a fixed number.</p>
 </div>
 </div>
 </div>

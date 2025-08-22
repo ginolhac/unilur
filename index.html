@@ -152,7 +152,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pre-filled-template-quarto-files" id="toc-pre-filled-template-quarto-files" class="nav-link active" data-scroll-target="#pre-filled-template-quarto-files">Pre-filled template quarto files</a></li>
+  <li><a href="#global-options" id="toc-global-options" class="nav-link active" data-scroll-target="#global-options">Global options</a></li>
+  <li><a href="#pre-filled-template-quarto-files" id="toc-pre-filled-template-quarto-files" class="nav-link" data-scroll-target="#pre-filled-template-quarto-files">Pre-filled template quarto files</a></li>
   <li><a href="#template-headers" id="toc-template-headers" class="nav-link" data-scroll-target="#template-headers">Template headers</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul>
@@ -184,6 +185,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>You can check the source to adapt to your own needs in <a href="https://github.com/ginolhac/unilur/tree/main/docs">the docs folder</a>.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>One real example is this <a href="https://basv53.uni.lu">bachelor R intro module</a> for Life Sciences students.</p>
 <p>For students, we want to have slides (<code>revealjs</code>) and practicals. In the later, the Quarto documents are using <strong>unilur</strong> for writing solutions along questions. Solutions are within green boxes that we hide for instructions and reveal when practicals are done. This is acheived by toggling the header variable to <code>true</code> from: <code>show-solution: false</code></p>
+<section id="global-options" class="level3">
+<h3 class="anchored" data-anchor-id="global-options">Global options</h3>
+<ul>
+<li><code>show-solution</code>:
+<ul>
+<li><code>true</code> generates solution boxes (<em>ie</em> like format <code>unilur-html+solution</code>).</li>
+<li><code>false</code> generates instructions without solutions.</li>
+</ul></li>
+<li><code>collapse-solution</code>:
+<ul>
+<li><code>true</code> (the default) for HTML output, all solution boxes are collapsed, students need to click on them to unfolded.</li>
+<li><code>false</code>, all solutions are unfolded.</li>
+</ul></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can specify <em>per</em> chunk the option <code>unilur-collapse</code> which override the behavior of the global option <code>collapse-solution</code>.</p>
+<p>See the examples in practical03</p>
+</div>
+</div>
+</section>
 <section id="pre-filled-template-quarto-files" class="level3">
 <h3 class="anchored" data-anchor-id="pre-filled-template-quarto-files">Pre-filled template quarto files</h3>
 <p>The add-on here is generating <strong>Quarto templates</strong> that students can download and start filling up. They are <code>.qmd</code> files identical to instructions but where solution chunks are replaced by:</p>

@@ -16,6 +16,7 @@ The latin name of baker's yeast is _Saccharomyces cerevisiae_.
 
 
 
+This solution is unfolded thanks to its option: `#| unilur-collapse: false`
 
 ##### Compute 2 + 4?
 

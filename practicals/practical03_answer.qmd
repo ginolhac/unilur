@@ -1,0 +1,42 @@
+---
+title: "Practical collapse"
+date: 2025-09-22
+author: "Your name"
+format: html
+embed-resources: true
+---
+
+::: {.callout-note}
+This practical has:
+
+- `show-solution: true`, solution are displayed.
+- `collapse-solution: false`, solution are **not** collapsed (collapsed is the usual default mode)
+:::
+
+
+##### Generate 5 numbers from the uniform distribution between 0 and 1
+
+```{r}
+# Write answer here
+```
+
+The next solution collapsed despite the global option because of its specific option: `#| unilur-collapse: true`
+
+##### Generate 5 numbers from the uniform distribution between 5 and 10
+
+```{r}
+# Write answer here
+```
+
+
+##### Generate 5 numbers from the strandard distribution
+
+```{r}
+# Write answer here
+```
+
+Next block is only collapsed individually
+
+##### Results are always changing, how to get identical random numbers?
+
+
