@@ -5,6 +5,8 @@ code-line-numbers: false
 
 This **Quarto** website is demo of how we can use **unilur** for teaching.
 
+You can check the source to adapt to your own needs in [the docs folder](https://github.com/ginolhac/unilur/tree/main/docs).[^1]
+
 One real example is this [bachelor R intro module](https://basv53.uni.lu) for Life Sciences students.
 
 For students, we want to have slides (`revealjs`) and practicals.
@@ -84,3 +86,7 @@ Of note, practicals with a `draft: true` variable are ignored.
 ## Acknowledgements
 
 - **Andrew Heiss** with this great example from his [dataviz website](https://github.com/andrewheiss/datavizsp25.classes.andrewheiss.com/blob/main/data/extract-news-headings.R)
+
+
+[^1]: The **unilur** extension lies at the root of the GitHub repo, but a [symbolic link](https://en.wikipedia.org/wiki/Symbolic_link) 
+is used for the demo website in the sub-folder `docs/` and pointed to the repo root `_extensions/`.
