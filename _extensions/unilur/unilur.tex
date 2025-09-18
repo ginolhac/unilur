@@ -1,3 +1,29 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Hide first R chunk only
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{shadedcount}
+
+\AtBeginDocument{
+  \renewenvironment{Shaded}{
+    \stepcounter{shadedcount}
+    \ifnum\value{shadedcount}=1
+      \begingroup\color{white}\setbox0=\vbox\bgroup
+    \else
+      \begin{snugshade}
+    \fi
+  }{
+    \ifnum\value{shadedcount}=1
+      \egroup\endgroup
+    \else
+      \end{snugshade}
+    \fi
+  }
+}
+
+
+
+
 %%%%%%%%%%
 % Packages
 %%%%%%%%%%
