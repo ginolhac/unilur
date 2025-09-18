@@ -160,4 +160,5 @@ end
 return {
   {Meta = read_meta},
   {Div = Div},
-  {Pandoc} = {Pandoc}
+  {Pandoc = Pandoc}
+}
