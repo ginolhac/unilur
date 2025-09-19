@@ -147,18 +147,11 @@ local function Div(el)
   end
 end
 
--- Insert a hidden R chunk at the top of the document to force Shaded environment
-function Pandoc(doc)
-  local chunk = pandoc.CodeBlock("invisible(NULL)", {class="r"})
-  table.insert(doc.blocks, 1, chunk)
-  return doc
-end
 
 
 -- Run in two passes so we process metadata
 -- and then process the divs
 return {
   {Meta = read_meta},
-  {Div = Div},
-  {Pandoc = Pandoc}
+  {Div = Div}
 }
