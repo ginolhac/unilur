@@ -97,9 +97,13 @@ local function Div(el)
       sol_counter = sol_counter + 1
 
       if quarto.doc.isFormat("pdf") then
-        local latex_content = stringify_blocks(el.content)
+        local latex_content = pandoc.write(pandoc.Pandoc(el.content), "latex")
         local title = "Solution " .. sol_counter .. " "
-        return pandoc.RawBlock("latex", string.format("\\begin{callout-solution}[]{\\textbf{%s}}\n%s\n\\end{callout-solution}", title, latex_content))
+        return {
+        pandoc.RawBlock("latex", "\\begin{callout-solution}[]{\\textbf{" .. title .. "}}"),
+        pandoc.RawBlock("latex", latex_content),
+        pandoc.RawBlock("latex", "\\end{callout-solution}")
+      }
       else
         return {quarto.Callout({
           content =  { el },
@@ -152,6 +156,8 @@ local function Div(el)
     end
   end
 end
+
+
 
 -- Run in two passes so we process metadata
 -- and then process the divs
