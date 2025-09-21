@@ -1,5 +1,10 @@
 # Development version
 
+# v0.2.1 2025-09-21
+
+- Bugfix with div and block solutions in PDF format (@SarahMuse #17)
+- Bugfix in PDF format when custom solution callout were not recognized by Quarto. Inject tex code conditionally (@SarahMuse #17)
+
 # v0.2.0 2025-07-23
 
 - New callout for "Comments" that appears together with solutions if used (@SarahMuse #8)
