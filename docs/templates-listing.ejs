@@ -1,0 +1,26 @@
+```{=html}
+<table class="quarto-listing-table table table-striped table-hover">
+    <thead>
+        <tr>
+            <th style="width: 25% !important">Date</th>
+            <th style="width: 40% !important">Title</th>
+            <th style="width: 35% !important">File (<code>.qmd</code>)</th>
+        </tr>
+    </thead>
+    <tbody class="list">
+        <% for (const item of items) { %>
+        <tr <%=metadataAttrs(item) %>>
+            <td>
+                <%= item.date %>
+            </td>
+            <td>
+                <%= item.title %>
+            </td>
+            <td>
+                <a href="<%- item.href %>"><%= item.file %></a>
+            </td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+```

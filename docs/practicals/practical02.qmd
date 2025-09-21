@@ -1,0 +1,34 @@
+---
+title: "Practical yeast"
+subtitle: "short demo"
+author: "A Ginolhac"
+date: "2025-09-15"
+format: unilur-html+solution
+show-solution: true
+embed-resources: true
+---
+
+::: {.callout-note}
+This practical has `show-solution: true`, solution are displayed.
+:::
+
+The latin name of baker's yeast is _Saccharomyces cerevisiae_.
+
+##### Give some yeast usage!
+
+::: unilur-solution
+
+wine, beer, cake, pizza
+:::
+
+This solution is unfolded thanks to its option: `#| unilur-collapse: false`
+
+##### Compute 2 + 4?
+
+```{r}
+#| unilur-solution: true
+#| unilur-collapse: false
+
+2 + 4
+```
+

@@ -1,6 +1,6 @@
 /* Solution callout */
 /* ---------------- */
-div.callout-solution.callout { 
+div.callout-solution.callout {
   border-left-color: #12a629; /* Border color (HEX code) */
 }
 
@@ -15,7 +15,7 @@ div.callout-solution.icon .callout-icon {
 
 /* Comment callout */
 /* ---------------- */
-div.callout-comment.callout { 
+div.callout-comment.callout {
   border-left-color: #9E9E9E; /* Border color (HEX code) */
 }
 
@@ -27,7 +27,6 @@ div.callout-comment.icon .callout-icon {
   display: unset; /* No icon for comment callout */
 }
 
-
 /* Tip callout */
 /* ---------------- */
 /* The colour was changed to yellow as 1) homage of the original {unilur} R package and 2) to differentiate to the solutions */
@@ -38,10 +37,6 @@ div.callout-tip.callout {
 div.callout-tip.callout-style-default>.callout-header {
   background-color: #fff9dc; /* Background color (HEX code) */
 }
-
-
-
-
 
 h5 { /* Header 5 so questions */
   font-size: 1.2em;

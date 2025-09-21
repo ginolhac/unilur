@@ -10,3 +10,6 @@
 renv.lock
 *.html
 /.luarc.json
+_site/
+_freeze/
+site_libs/

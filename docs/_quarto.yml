@@ -1,0 +1,44 @@
+project:
+  type: website
+  pre-render: create-template-yml.R # key hook before quarto render
+  render:
+    - "*.qmd"
+    - "!*_answer.qmd"
+
+execute:
+  freeze: auto # re-render only when source changes
+
+website:
+  site-url: https://ginolhac.github.io/unilur
+  image: https://quarto.org/quarto-dark-bg.jpeg
+  image-alt: "quarto logo"
+  draft-mode: unlinked
+  navbar:
+    logo: https://quarto.org/quarto-dark-bg.jpeg
+    background: light
+    left:
+      - file: index.qmd
+        text: "Home"
+      - file: example.qmd
+        text: "Example"
+      - file: practicals.qmd
+        text: "Practicals demo"
+  
+  page-footer:
+    center: |
+      All content licensed under Creative Commons By
+    right:
+      - icon: github
+        href: https://github.com/ginolhac
+    border: true
+
+format:
+  html:
+    theme: cosmo
+    code-copy: true
+    code-line-numbers: true
+    highlight-style: solarized
+    css: styles.css
+    toc: true
+    fontsize: 1.1em
+    lang: en

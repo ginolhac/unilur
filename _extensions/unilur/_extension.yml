@@ -1,6 +1,6 @@
 title: Unilur
 author: Aurélien Ginolhac, Sarah Musy, Michael Lydeamore
-version: 0.2.1
+version: 0.2.3
 quarto-required: ">=1.4.538"
 contributes:
   format:
