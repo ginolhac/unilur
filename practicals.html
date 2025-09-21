@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,14 +34,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-488f578b20bdd4d53fbf960aba71aaaf.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e384bd1f86e11a2391857390eab7ea18.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6151921bf34243e1d1014ee501bd9a98.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d834a98b3a958069c7e9f2a760972d28.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -141,7 +142,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -168,7 +169,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="https://quarto.org/quarto-dark-bg.jpeg" alt="" class="navbar-logo">
+    <img src="https://quarto.org/quarto-dark-bg.jpeg" alt="" class="navbar-logo light-content">
+    <img src="https://quarto.org/quarto-dark-bg.jpeg" alt="" class="navbar-logo dark-content">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -256,24 +258,7 @@ Subtitle
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-date-sort="1755820800000" data-listing-file-modified-sort="1755868012057" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="45" data-listing-title-sort="Practical chickens" data-listing-filename-sort="practical01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
- if (href) { window.location=href ; return false; }">
-<td>
-<span class="listing-date">Friday, 22 Aug.&nbsp;2025</span>
-</td>
-<td>
-<a href="./practicals/practical01.html" class="title listing-title">Practical chickens</a>
-</td>
-<td>
-<span class="listing-subtitle">one question only</span>
-</td>
-<td>
-<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
-</td>
-
-</tr>
-
-<tr data-index="1" data-listing-date-sort="1757894400000" data-listing-file-modified-sort="1755868012057" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="41" data-listing-title-sort="Practical yeast" data-listing-filename-sort="practical02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="0" data-listing-date-sort="1757894400000" data-listing-file-modified-sort="1758441563494" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="41" data-listing-title-sort="Practical yeast" data-listing-filename-sort="practical02.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">Monday, 15 Sep.&nbsp;2025</span>
@@ -290,7 +275,24 @@ Subtitle
 
 </tr>
 
-<tr data-index="2" data-listing-date-sort="1758499200000" data-listing-file-modified-sort="1755868012058" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="103" data-listing-title-sort="Practical collapse" data-listing-filename-sort="practical03.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+<tr data-index="1" data-listing-date-sort="1758412800000" data-listing-file-modified-sort="1758441563494" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="45" data-listing-title-sort="Practical chickens" data-listing-filename-sort="practical01.qmd" onclick="href = this.querySelector('a').getAttribute('href');
+ if (href) { window.location=href ; return false; }">
+<td>
+<span class="listing-date">Sunday, 21 Sep.&nbsp;2025</span>
+</td>
+<td>
+<a href="./practicals/practical01.html" class="title listing-title">Practical chickens</a>
+</td>
+<td>
+<span class="listing-subtitle">one question only</span>
+</td>
+<td>
+<span class="listing-image"><div class="listing-item-img-placeholder card-img-top" style="height: 40px;">&nbsp;</div></span>
+</td>
+
+</tr>
+
+<tr data-index="2" data-listing-date-sort="1758499200000" data-listing-file-modified-sort="1758441563494" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="103" data-listing-title-sort="Practical collapse" data-listing-filename-sort="practical03.qmd" onclick="href = this.querySelector('a').getAttribute('href');
  if (href) { window.location=href ; return false; }">
 <td>
 <span class="listing-date">Monday, 22 Sep.&nbsp;2025</span>
@@ -314,7 +316,7 @@ Subtitle
 <section id="practical-quarto-templates-pre-filled" class="level3">
 <h3 class="anchored" data-anchor-id="practical-quarto-templates-pre-filled">Practical Quarto templates pre-filled</h3>
 <div id="listing-practicals-templates" class="quarto-listing quarto-listing-container-custom">
-<table class="quarto-listing-table table table-striped table-hover caption-top" data-quarto-postprocess="true">
+<table class="quarto-listing-table table table-striped table-hover caption-top">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th" style="width: 25% !important">Date</th>
@@ -323,7 +325,7 @@ Subtitle
 </tr>
 </thead>
 <tbody class="list">
-<tr class="odd" data-index="0" data-listing-date-sort="20322">
+<tr class="odd" data-index="0" data-listing-date-sort="20352">
 <td>Thursday, 1 Jan. 1970</td>
 <td>Practical chickens</td>
 <td><a href="practicals/practical01_answer.qmd">practical01_answer.qmd</a></td>
@@ -399,13 +401,14 @@ Subtitle
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
