@@ -1,0 +1,65 @@
+---
+title: "Exam example"
+format: 
+  unilur-pdf: 
+    number-sections: true
+  unilur-pdf+solution:
+    number-sections: true
+---
+
+
+This is just to show that the behavior of the numbering is still working without headers.
+
+::: {.exam-question points="1" lines="1"}
+What do you think?
+:::
+
+::: unilur-solution
+Free text answer
+:::
+
+
+
+# Section : Basics
+
+## Subsection
+
+::: {.exam-question points="2" lines="4"}
+What is 2+2?
+:::
+
+::: unilur-solution
+The answer is 4.
+:::
+
+::: unilur-comment
+Hint: Remember basic arithmetic.
+:::
+
+::: {.exam-question points="3" lines="3"}
+Define a variable in R.
+:::
+
+::: unilur-solution
+Use `x <- 10` or similar assignment.
+:::
+
+# Section : Advanced
+
+::: {.exam-question points="5" lines="4"}
+Third question without a subsection header.
+:::
+
+::: unilur-solution
+Use advanced R techniques to solve.
+:::
+
+::: unilur-comment
+Comment for question 3.
+:::
+
+
+This is an optional box. It allows to see the total points of the exam in a glance with each question points.
+
+::: exam-summary
+:::
