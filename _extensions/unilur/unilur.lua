@@ -36,27 +36,27 @@ end
 -- Updates numbering and stores section titles whenever a header is encountered
 function Header(el)
   local level = el.level
-  
+
   -- Extend or trim the section_numbers table to match header level
   while #section_numbers < level do table.insert(section_numbers, 0) end
   while #section_numbers > level do table.remove(section_numbers) end
-  
+
   -- Increment counter for this header level
   section_numbers[level] = (section_numbers[level] or 0) + 1
-  
+
   -- Reset deeper levels
   for i = level + 1, #section_numbers do section_numbers[i] = nil end
-  
+
   -- Store header titles
   current_section_title = pandoc.utils.stringify(el.content)
   if level == 1 then
    top_section_title = current_section_title -- only first-level headers for summary
   end
-  
+
   -- Reset counters for each new header (start numbering fresh within this section)
   exr_counts, sol_counts, comment_counts, question_counts = {}, {}, {}, {}
   last_question_prefix = nil
-  
+
   return el
 end
 
@@ -66,7 +66,7 @@ end
 local function current_section_prefix()
   if #section_numbers == 0 then return "" end
   return table.concat(section_numbers, ".") -- e.g., "1.2" for section 1, subsection 2
-end 
+end
 
 
 -- === Helper: answer lines for exam questions ===
@@ -148,7 +148,7 @@ local function Div(el)
     table.insert(el.content, 1, heading)
     return el
 end
-  
+
   ---------------------------------------------------------
   -- Exam Question (.exam-question)
   ---------------------------------------------------------
@@ -173,13 +173,13 @@ end
       question_text = pandoc.utils.stringify(el.content[1])
       table.remove(el.content, 1) -- remove first paragraph from content
     end
-    
+
     -- Build heading elements: "1.1.1 Question: What is X?"
-    local heading_elems = { 
+    local heading_elems = {
       pandoc.Strong(prefix .. " Question: "), -- bold prefix + label
       pandoc.Str(question_text)  -- normal font for question text
     }
-    
+
     -- Add points display (bold + underline for PDF, HTML strong for web)
     if points > 0 then
       if quarto.doc.isFormat("pdf") then
@@ -194,11 +194,11 @@ end
     end
 
     local heading = pandoc.Para(heading_elems)
-    
+
     -- Combine heading with remaining content
     local content = { heading }
     for _, block in ipairs(el.content) do table.insert(content, block) end
-    
+
     -- Add empty answer lines if solutions are hidden
     if not options_solution then
       local n_lines = tonumber(el.attributes["lines"]) or 6
@@ -214,6 +214,13 @@ end
   if (el.classes:includes("cell") and el.attributes["unilur-solution"] == "true")
       or el.classes:includes("unilur-solution") then
     el.attributes["unilur-solution"] = nil
+    if quarto.doc.hasBootstrap() or quarto.doc.isFormat("revealjs") then
+      quarto.doc.addHtmlDependency({
+        name = "unilur",
+        version = "0.2.3",
+        stylesheets = {"unilur.css"}
+      })
+    end
 
     if options_solution then
       if el.attributes["unilur-collapse"] == "false" then options_collapse = false end
@@ -287,10 +294,10 @@ end
       table.insert(rows, string.format("| %s | %s | %d |", q.section, q.question, q.points))
       subtotal = subtotal + q.points
     end
-    
+
     -- Add total row
     table.insert(rows, string.format("| **Total** | — | **%d** |", subtotal))
-    
+
     -- Parse Markdown into Pandoc blocks and wrap in a div
     local md_table = table.concat(rows, "\n")
     local blocks = pandoc.read(md_table, "markdown").blocks
